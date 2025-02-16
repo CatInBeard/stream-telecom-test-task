@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Exceptions\ErrorJsonException;
 use App\Models\ShortLink;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 
 class ShortLinkService
 {
@@ -26,6 +27,8 @@ class ShortLinkService
         $shortLink->use_js_redirect = $useJsRedirect;
         $shortLink->user_id = Auth::id();
         $shortLink->save();
+
+        Cache::forever("short_link_{$shortLink->getShortLinkPart()}", $shortLink);
 
         return $shortLink;
     }
@@ -57,10 +60,21 @@ class ShortLinkService
      */
     public function getShortLinkByLink($link)
     {
+
+        $cachedShortLink = Cache::get("short_link_{$link}");
+
+        if ($cachedShortLink) {
+            return $cachedShortLink;
+        }
+
         $link = ShortLink::getByShortLink($link);
+
         if(!$link){
             throw new ErrorJsonException('Link not found', 404);
         }
+
+        Cache::forever("short_link_{$link->getShortLinkPart()}", $link);
+
         return $link;
     }
 
@@ -81,6 +95,8 @@ class ShortLinkService
         $link->link = $url;
         $link->use_js_redirect = $useJsRedirect;
         $link->save();
+
+        Cache::forever("short_link_{$link->getShortLinkPart()}", $link);
 
         return $link;
     }

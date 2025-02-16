@@ -21,7 +21,7 @@ class ShortLinkRedirectController extends Controller
         try {
             $link = $this->shortLinkService->getShortLinkByLink($link);
         } catch (ErrorJsonException $e) {
-            abort(404);
+            abort($e->getCode());
         }
 
         $data = $this->visitDataService->createPrimaryData(
