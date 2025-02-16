@@ -1,0 +1,463 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/auth:
+    delete:
+      summary: 'Invoke jwt token'
+      operationId: invokeJwtToken
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'User logged out successfully'
+                properties:
+                  message:
+                    type: string
+                    example: 'User logged out successfully'
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: Unauthenticated
+                properties:
+                  error:
+                    type: string
+                    example: Unauthenticated
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: 'Get jwt token'
+      operationId: getJwtToken
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n     \"email\": \"john@example.com\"\n     \"password\": \"mySecretPassword\"\n}"
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: Unauthenticated
+                properties:
+                  error:
+                    type: string
+                    example: Unauthenticated
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: floy28@example.com
+                  nullable: false
+                password:
+                  type: string
+                  description: ''
+                  example: ++-1C0u
+                  nullable: false
+              required:
+                - email
+                - password
+      security: []
+  /api/users/me:
+    get:
+      summary: 'Get my user'
+      operationId: getMyUser
+      description: 'You can see yourself'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  name: 'John Doe'
+                  email: john@example.com
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  name:
+                    type: string
+                    example: 'John Doe'
+                  email:
+                    type: string
+                    example: john@example.com
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: Unauthenticated
+                properties:
+                  error:
+                    type: string
+                    example: Unauthenticated
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: Unauthorized
+                properties:
+                  error:
+                    type: string
+                    example: Unauthorized
+      tags:
+        - Endpoints
+      security: []
+  /api/users:
+    get:
+      summary: 'Get a list of users'
+      operationId: getAListOfUsers
+      description: 'Only users with admin role can use this endpoint'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 1
+                    name: 'John Doe'
+                    email: john@example.com
+                  -
+                    id: 2
+                    name: 'Jane Smith'
+                    email: jane@example.com
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: Unauthenticated
+                properties:
+                  error:
+                    type: string
+                    example: Unauthenticated
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: Unauthorized
+                properties:
+                  error:
+                    type: string
+                    example: Unauthorized
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                limit:
+                  type: integer
+                  description: 'Must be at least 1. Must not be greater than 500.'
+                  example: 10
+                  nullable: false
+                page:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 25
+                  nullable: false
+                name:
+                  type: string
+                  description: ''
+                  example: consequatur
+                  nullable: true
+                email:
+                  type: string
+                  description: ''
+                  example: ahmad.smitham@example.org
+                  nullable: true
+      security: []
+    post:
+      summary: 'Create user'
+      operationId: createUser
+      description: 'Create new user'
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  name: 'John Doe'
+                  email: john@example.com
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  name:
+                    type: string
+                    example: 'John Doe'
+                  email:
+                    type: string
+                    example: john@example.com
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: ytvkvdawbz
+                  nullable: false
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: reina.keebler@example.org
+                  nullable: false
+                password:
+                  type: string
+                  description: 'Must be at least 6 characters.'
+                  example: "M{~?31zu*dY%f',3F"
+                  nullable: false
+              required:
+                - name
+                - email
+                - password
+      security: []
+  '/api/users/{id}':
+    get:
+      summary: 'Show user'
+      operationId: showUser
+      description: 'You can get user by id. If not admin, you can get only yourself'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  name: 'John Doe'
+                  email: john@example.com
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  name:
+                    type: string
+                    example: 'John Doe'
+                  email:
+                    type: string
+                    example: john@example.com
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: Unauthenticated
+                properties:
+                  error:
+                    type: string
+                    example: Unauthenticated
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: Unauthorized
+                properties:
+                  error:
+                    type: string
+                    example: Unauthorized
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: 'Update user info'
+      operationId: updateUserInfo
+      description: 'You can see update only yourself if not admin'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  name: 'John Doe'
+                  email: john@example.com
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  name:
+                    type: string
+                    example: 'John Doe'
+                  email:
+                    type: string
+                    example: john@example.com
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: Unauthenticated
+                properties:
+                  error:
+                    type: string
+                    example: Unauthenticated
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: Unauthorized
+                properties:
+                  error:
+                    type: string
+                    example: Unauthorized
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'optional required The name of the user.'
+                  example: facere
+                  nullable: false
+                email:
+                  type: string
+                  description: 'optional required The email of the user.'
+                  example: cathryn97@example.net
+                  nullable: false
+                password:
+                  type: string
+                  description: 'optional The password of the user.'
+                  example: "(7*coGm,'g`1;M^!hR"
+                  nullable: false
+                role:
+                  type: string
+                  description: ''
+                  example: admin
+                  nullable: false
+                  enum:
+                    - client
+                    - admin
+      security: []
+    delete:
+      summary: 'Delete user by id'
+      operationId: deleteUserById
+      description: 'You can see delete only yourself if not admin'
+      parameters: []
+      responses:
+        204:
+          description: ''
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: Unauthenticated
+                properties:
+                  error:
+                    type: string
+                    example: Unauthenticated
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: Unauthorized
+                properties:
+                  error:
+                    type: string
+                    example: Unauthorized
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the user.'
+        example: 16
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: Endpoints
+    description: ''
