@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ShortLinkController;
+use App\Http\Controllers\Api\ShortlLinkDataCollectController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,6 @@ Route::middleware('throttle:10,1')->group(function () {
 Route::middleware('throttle:10,3600')->group(function () {
     Route::post('users', [UserController::class, 'store'])->name('users.store');
 });
+
+Route::post('/short-links/{id}/additional_info', [ShortlLinkDataCollectController::class, 'store'])
+    ->name('short-links-additional-data.store')->middleware('throttle:100000,1');

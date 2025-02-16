@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\AdditionalVisitInfo;
 use App\Models\ShortLink;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -16,5 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UserSeeder::class);
         $this->call(ShortLinkSeeder::class);
+        $this->call(VisitUserDataSeeder::class);
+        $this->call(AdditionalVisitInfoSeeder::class);
     }
 }

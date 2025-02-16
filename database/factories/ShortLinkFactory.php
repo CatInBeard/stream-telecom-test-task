@@ -17,7 +17,7 @@ class ShortLinkFactory extends Factory
     public function definition(): array
     {
         return [
-            'link' => $this->faker->url,
+            'link' => "https://duckduckgo.com/?q=" . urlencode($this->faker->sentence),
             'use_js_redirect' => $this->faker->boolean,
             'user_id' => \App\Models\User::factory(),
         ];

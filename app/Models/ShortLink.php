@@ -27,11 +27,16 @@ class ShortLink extends Model
 
     public function getShortLinkAttribute()
     {
-        return base_convert($this->id, 10, 36);
+        return route('redirect-link.show', ['link' => base_convert($this->id, 10, 36)]);
     }
 
     public static function getByShortLink($shortLink)
     {
         return self::where('id', base_convert($shortLink, 36, 10))->first();
+    }
+
+    public function visitUserData()
+    {
+        return $this->hasMany(VisitUserData::class);
     }
 }
