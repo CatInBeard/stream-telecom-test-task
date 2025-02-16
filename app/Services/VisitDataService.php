@@ -24,4 +24,22 @@ class VisitDataService
         $additionalData['visit_user_data_id'] = $visitId;
         return AdditionalVisitInfo::create($additionalData);
     }
+
+    public function getFullDataByShortLink($shortLinkId, $limit = 100, $page = 1)
+    {
+
+        $visitUserData = VisitUserData::where('short_link_id', $shortLinkId)
+            ->paginate($limit, ['*'], 'page', $page);
+
+        $visitUserData->getCollection()->transform(function ($visit) {
+            $visit->additional_info = AdditionalVisitInfo::where('visit_user_data_id', $visit->id)
+                ->orderBy('created_at', 'desc')
+                ->first();
+
+            return $visit;
+        });
+
+        return $visitUserData;
+    }
+
 }

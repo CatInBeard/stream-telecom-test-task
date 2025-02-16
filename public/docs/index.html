@@ -98,6 +98,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-short-links--id-">
                                 <a href="#endpoints-DELETEapi-short-links--id-">Create new short link</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-short-links--id--additional_info">
+                                <a href="#endpoints-GETapi-short-links--id--additional_info">Get list of links visitors</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-short-links--id-">
                                 <a href="#endpoints-GETapi-short-links--id-">Get short link by id</a>
                             </li>
@@ -108,7 +111,7 @@
                                 <a href="#endpoints-POSTapi-users">Create user</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-short-links--id--additional_info">
-                                <a href="#endpoints-POSTapi-short-links--id--additional_info">POST api/short-links/{id}/additional_info</a>
+                                <a href="#endpoints-POSTapi-short-links--id--additional_info">Save data from js. Always return OK</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -451,10 +454,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"limit\": 25,
-    \"page\": 16,
-    \"name\": \"inventore\",
-    \"email\": \"nienow.edna@example.net\"
+    \"limit\": 19,
+    \"page\": 22,
+    \"name\": \"qui\",
+    \"email\": \"gconroy@example.net\"
 }"
 </code></pre></div>
 
@@ -471,10 +474,10 @@ const headers = {
 };
 
 let body = {
-    "limit": 25,
-    "page": 16,
-    "name": "inventore",
-    "email": "nienow.edna@example.net"
+    "limit": 19,
+    "page": 22,
+    "name": "qui",
+    "email": "gconroy@example.net"
 };
 
 fetch(url, {
@@ -610,10 +613,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="limit"                data-endpoint="GETapi-users"
-               value="25"
+               value="19"
                data-component="body">
     <br>
-<p>Must be at least 1. Must not be greater than 500. Example: <code>25</code></p>
+<p>Must be at least 1. Must not be greater than 500. Example: <code>19</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
@@ -621,10 +624,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="page"                data-endpoint="GETapi-users"
-               value="16"
+               value="22"
                data-component="body">
     <br>
-<p>Must be at least 1. Example: <code>16</code></p>
+<p>Must be at least 1. Example: <code>22</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
@@ -632,10 +635,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="GETapi-users"
-               value="inventore"
+               value="qui"
                data-component="body">
     <br>
-<p>Example: <code>inventore</code></p>
+<p>Example: <code>qui</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -643,10 +646,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="GETapi-users"
-               value="nienow.edna@example.net"
+               value="gconroy@example.net"
                data-component="body">
     <br>
-<p>Example: <code>nienow.edna@example.net</code></p>
+<p>Example: <code>gconroy@example.net</code></p>
         </div>
         </form>
 
@@ -668,9 +671,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"id\",
-    \"email\": \"ureilly@example.org\",
-    \"password\": \":c|fJj\",
+    \"name\": \"non\",
+    \"email\": \"francesca00@example.net\",
+    \"password\": \"sMga1@)[\",
     \"role\": \"client\"
 }"
 </code></pre></div>
@@ -688,9 +691,9 @@ const headers = {
 };
 
 let body = {
-    "name": "id",
-    "email": "ureilly@example.org",
-    "password": ":c|fJj",
+    "name": "non",
+    "email": "francesca00@example.net",
+    "password": "sMga1@)[",
     "role": "client"
 };
 
@@ -836,10 +839,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="PUTapi-users--id-"
-               value="id"
+               value="non"
                data-component="body">
     <br>
-<p>optional required The name of the user. Example: <code>id</code></p>
+<p>optional required The name of the user. Example: <code>non</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -847,10 +850,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="PUTapi-users--id-"
-               value="ureilly@example.org"
+               value="francesca00@example.net"
                data-component="body">
     <br>
-<p>optional required The email of the user. Example: <code>ureilly@example.org</code></p>
+<p>optional required The email of the user. Example: <code>francesca00@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -858,10 +861,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="PUTapi-users--id-"
-               value=":c|fJj"
+               value="sMga1@)["
                data-component="body">
     <br>
-<p>optional The password of the user. Example: <code>:c|fJj</code></p>
+<p>optional The password of the user. Example: <code>sMga1@)[</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>role</code></b>&nbsp;&nbsp;
@@ -1053,8 +1056,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"per_page\": 18,
-    \"page\": 16
+    \"per_page\": 10,
+    \"page\": 89
 }"
 </code></pre></div>
 
@@ -1071,8 +1074,8 @@ const headers = {
 };
 
 let body = {
-    "per_page": 18,
-    "page": 16
+    "per_page": 10,
+    "page": 89
 };
 
 fetch(url, {
@@ -1218,10 +1221,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="per_page"                data-endpoint="GETapi-short-links"
-               value="18"
+               value="10"
                data-component="body">
     <br>
-<p>Must be at least 1. Must not be greater than 100. Example: <code>18</code></p>
+<p>Must be at least 1. Must not be greater than 100. Example: <code>10</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
@@ -1229,10 +1232,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="page"                data-endpoint="GETapi-short-links"
-               value="16"
+               value="89"
                data-component="body">
     <br>
-<p>Must be at least 1. Example: <code>16</code></p>
+<p>Must be at least 1. Example: <code>89</code></p>
         </div>
         </form>
 
@@ -1254,7 +1257,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"url\": \"http:\\/\\/conn.net\\/nostrum-a-mollitia-est-optio-veniam-dolor\",
+    \"url\": \"https:\\/\\/cummings.biz\\/reiciendis-dolores-nostrum-vel-voluptate-quibusdam-est.html\",
     \"use_js_redirect\": true
 }"
 </code></pre></div>
@@ -1272,7 +1275,7 @@ const headers = {
 };
 
 let body = {
-    "url": "http:\/\/conn.net\/nostrum-a-mollitia-est-optio-veniam-dolor",
+    "url": "https:\/\/cummings.biz\/reiciendis-dolores-nostrum-vel-voluptate-quibusdam-est.html",
     "use_js_redirect": true
 };
 
@@ -1404,10 +1407,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="url"                data-endpoint="POSTapi-short-links"
-               value="http://conn.net/nostrum-a-mollitia-est-optio-veniam-dolor"
+               value="https://cummings.biz/reiciendis-dolores-nostrum-vel-voluptate-quibusdam-est.html"
                data-component="body">
     <br>
-<p>Must be a valid URL. Example: <code>http://conn.net/nostrum-a-mollitia-est-optio-veniam-dolor</code></p>
+<p>Must be a valid URL. Example: <code>https://cummings.biz/reiciendis-dolores-nostrum-vel-voluptate-quibusdam-est.html</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>use_js_redirect</code></b>&nbsp;&nbsp;
@@ -1445,7 +1448,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/short-links/occaecati" \
+    "http://localhost/api/short-links/nisi" \
     --header "Authorization: Bearer token" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1453,7 +1456,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/short-links/occaecati"
+    "http://localhost/api/short-links/nisi"
 );
 
 const headers = {
@@ -1602,10 +1605,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="PUTapi-short-links--id-"
-               value="occaecati"
+               value="nisi"
                data-component="url">
     <br>
-<p>The ID of the short link. Example: <code>occaecati</code></p>
+<p>The ID of the short link. Example: <code>nisi</code></p>
             </div>
                     </form>
 
@@ -1622,7 +1625,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/short-links/autem" \
+    "http://localhost/api/short-links/doloribus" \
     --header "Authorization: Bearer token" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1630,7 +1633,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/short-links/autem"
+    "http://localhost/api/short-links/doloribus"
 );
 
 const headers = {
@@ -1768,10 +1771,196 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="DELETEapi-short-links--id-"
-               value="autem"
+               value="doloribus"
                data-component="url">
     <br>
-<p>The ID of the short link. Example: <code>autem</code></p>
+<p>The ID of the short link. Example: <code>doloribus</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-short-links--id--additional_info">Get list of links visitors</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-short-links--id--additional_info">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/short-links/placeat/additional_info" \
+    --header "Authorization: Bearer token" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/short-links/placeat/additional_info"
+);
+
+const headers = {
+    "Authorization": "Bearer token",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-short-links--id--additional_info">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+&quot;current_page&quot; : 1
+&quot;data&quot;: [
+     {
+       &quot;id&quot;: &quot;uuid-1&quot;,
+       &quot;short_link_id&quot;: 1,
+       &quot;user_agent&quot;: &quot;Mozilla/5.0 ...&quot;,
+       &quot;ip_address&quot;: &quot;192.168.1.1&quot;,
+       &quot;session_uuid&quot;: &quot;uuid-session-1&quot;,
+       &quot;latest_additional_info&quot;: {
+       &quot;id&quot;: 1,
+       &quot;created_at&quot;: &quot;2023-10-01T12:00:00Z&quot;,
+       &quot;updated_at&quot;: &quot;2023-10-01T12:00:00Z&quot;
+       }
+     },
+     {
+       &quot;id&quot;: &quot;uuid-2&quot;,
+       &quot;short_link_id&quot;: 1,
+       &quot;user_agent&quot;: &quot;Mozilla/5.0 ...&quot;,
+       &quot;ip_address&quot;: &quot;192.168.1.2&quot;,
+       &quot;session_uuid&quot;: &quot;uuid-session-2&quot;,
+       &quot;additional_info&quot;: null
+     }
+   ]
+&quot;per_page&quot; : 10,
+&quot;to&quot; : 1,
+&quot;total&quot; : 1
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;error&quot;: &quot;Unauthenticated&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+&quot;error&quot;: &quot;Unauthorized&quot;
+}
+/</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-short-links--id--additional_info" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-short-links--id--additional_info"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-short-links--id--additional_info"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-short-links--id--additional_info" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-short-links--id--additional_info">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-short-links--id--additional_info" data-method="GET"
+      data-path="api/short-links/{id}/additional_info"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-short-links--id--additional_info', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-short-links--id--additional_info"
+                    onclick="tryItOut('GETapi-short-links--id--additional_info');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-short-links--id--additional_info"
+                    onclick="cancelTryOut('GETapi-short-links--id--additional_info');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-short-links--id--additional_info"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/short-links/{id}/additional_info</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization"                data-endpoint="GETapi-short-links--id--additional_info"
+               value="Bearer token"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer token</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-short-links--id--additional_info"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-short-links--id--additional_info"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="GETapi-short-links--id--additional_info"
+               value="placeat"
+               data-component="url">
+    <br>
+<p>The ID of the short link. Example: <code>placeat</code></p>
             </div>
                     </form>
 
@@ -1788,7 +1977,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/short-links/deserunt" \
+    --get "http://localhost/api/short-links/sed" \
     --header "Authorization: Bearer token" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1796,7 +1985,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/short-links/deserunt"
+    "http://localhost/api/short-links/sed"
 );
 
 const headers = {
@@ -1941,10 +2130,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="GETapi-short-links--id-"
-               value="deserunt"
+               value="sed"
                data-component="url">
     <br>
-<p>The ID of the short link. Example: <code>deserunt</code></p>
+<p>The ID of the short link. Example: <code>sed</code></p>
             </div>
                     </form>
 
@@ -1965,8 +2154,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"tchamplin@example.org\",
-    \"password\": \"hRz3hxx!~(A)m\"
+    \"email\": \"retha77@example.com\",
+    \"password\": \"#a89GYz3\"
 }"
 </code></pre></div>
 
@@ -1982,8 +2171,8 @@ const headers = {
 };
 
 let body = {
-    "email": "tchamplin@example.org",
-    "password": "hRz3hxx!~(A)m"
+    "email": "retha77@example.com",
+    "password": "#a89GYz3"
 };
 
 fetch(url, {
@@ -2091,10 +2280,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-auth"
-               value="tchamplin@example.org"
+               value="retha77@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>tchamplin@example.org</code></p>
+<p>Must be a valid email address. Example: <code>retha77@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -2102,10 +2291,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-auth"
-               value="hRz3hxx!~(A)m"
+               value="#a89GYz3"
                data-component="body">
     <br>
-<p>Example: <code>hRz3hxx!~(A)m</code></p>
+<p>Example: <code>#a89GYz3</code></p>
         </div>
         </form>
 
@@ -2126,9 +2315,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"fswldsaksm\",
-    \"email\": \"vidal.abbott@example.com\",
-    \"password\": \"r77%jws&amp;%\"
+    \"name\": \"olqmypiaiy\",
+    \"email\": \"bernhard.christina@example.net\",
+    \"password\": \"1k-:e?Q.,Kca-3A!_\"
 }"
 </code></pre></div>
 
@@ -2144,9 +2333,9 @@ const headers = {
 };
 
 let body = {
-    "name": "fswldsaksm",
-    "email": "vidal.abbott@example.com",
-    "password": "r77%jws&amp;%"
+    "name": "olqmypiaiy",
+    "email": "bernhard.christina@example.net",
+    "password": "1k-:e?Q.,Kca-3A!_"
 };
 
 fetch(url, {
@@ -2246,10 +2435,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-users"
-               value="fswldsaksm"
+               value="olqmypiaiy"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>fswldsaksm</code></p>
+<p>Must not be greater than 255 characters. Example: <code>olqmypiaiy</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -2257,10 +2446,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-users"
-               value="vidal.abbott@example.com"
+               value="bernhard.christina@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>vidal.abbott@example.com</code></p>
+<p>Must be a valid email address. Example: <code>bernhard.christina@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -2268,14 +2457,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-users"
-               value="r77%jws&%"
+               value="1k-:e?Q.,Kca-3A!_"
                data-component="body">
     <br>
-<p>Must be at least 6 characters. Example: <code>r77%jws&amp;%</code></p>
+<p>Must be at least 6 characters. Example: <code>1k-:e?Q.,Kca-3A!_</code></p>
         </div>
         </form>
 
-                    <h2 id="endpoints-POSTapi-short-links--id--additional_info">POST api/short-links/{id}/additional_info</h2>
+                    <h2 id="endpoints-POSTapi-short-links--id--additional_info">Save data from js. Always return OK</h2>
 
 <p>
 </p>
@@ -2288,28 +2477,28 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/short-links/non/additional_info" \
+    "http://localhost/api/short-links/et/additional_info" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"userAgent\": \"molestias\",
-    \"language\": \"culpa\",
-    \"platform\": \"dolor\",
-    \"screenResolution\": \"hic\",
-    \"colorDepth\": 20,
-    \"timezone\": \"Indian\\/Mayotte\",
+    \"userAgent\": \"ipsa\",
+    \"language\": \"laborum\",
+    \"platform\": \"sit\",
+    \"screenResolution\": \"quis\",
+    \"colorDepth\": 3,
+    \"timezone\": \"Antarctica\\/Mawson\",
     \"plugins\": [],
     \"cookiesEnabled\": true,
-    \"hardwareConcurrency\": 3,
+    \"hardwareConcurrency\": 1,
     \"onlineStatus\": false,
-    \"viewportSize\": \"hic\",
-    \"canvasFingerprint\": \"cumque\",
+    \"viewportSize\": \"ut\",
+    \"canvasFingerprint\": \"consequuntur\",
     \"installedFonts\": [],
-    \"browserName\": \"minima\",
-    \"browserVersion\": \"occaecati\",
+    \"browserName\": \"corporis\",
+    \"browserVersion\": \"cumque\",
     \"windowSize\": [],
-    \"localStorageAvailable\": false,
-    \"sessionStorageAvailable\": false,
+    \"localStorageAvailable\": true,
+    \"sessionStorageAvailable\": true,
     \"cssProperties\": []
 }"
 </code></pre></div>
@@ -2317,7 +2506,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/short-links/non/additional_info"
+    "http://localhost/api/short-links/et/additional_info"
 );
 
 const headers = {
@@ -2326,24 +2515,24 @@ const headers = {
 };
 
 let body = {
-    "userAgent": "molestias",
-    "language": "culpa",
-    "platform": "dolor",
-    "screenResolution": "hic",
-    "colorDepth": 20,
-    "timezone": "Indian\/Mayotte",
+    "userAgent": "ipsa",
+    "language": "laborum",
+    "platform": "sit",
+    "screenResolution": "quis",
+    "colorDepth": 3,
+    "timezone": "Antarctica\/Mawson",
     "plugins": [],
     "cookiesEnabled": true,
-    "hardwareConcurrency": 3,
+    "hardwareConcurrency": 1,
     "onlineStatus": false,
-    "viewportSize": "hic",
-    "canvasFingerprint": "cumque",
+    "viewportSize": "ut",
+    "canvasFingerprint": "consequuntur",
     "installedFonts": [],
-    "browserName": "minima",
-    "browserVersion": "occaecati",
+    "browserName": "corporis",
+    "browserVersion": "cumque",
     "windowSize": [],
-    "localStorageAvailable": false,
-    "sessionStorageAvailable": false,
+    "localStorageAvailable": true,
+    "sessionStorageAvailable": true,
     "cssProperties": []
 };
 
@@ -2356,7 +2545,16 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-short-links--id--additional_info">
-</span>
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+ &quot;message&quot;: &quot;Data successfully saved&quot;,
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-short-links--id--additional_info" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-short-links--id--additional_info"></span>:
@@ -2433,10 +2631,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="POSTapi-short-links--id--additional_info"
-               value="non"
+               value="et"
                data-component="url">
     <br>
-<p>The ID of the short link. Example: <code>non</code></p>
+<p>The ID of the short link. Example: <code>et</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2445,10 +2643,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="userAgent"                data-endpoint="POSTapi-short-links--id--additional_info"
-               value="molestias"
+               value="ipsa"
                data-component="body">
     <br>
-<p>Example: <code>molestias</code></p>
+<p>Example: <code>ipsa</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>language</code></b>&nbsp;&nbsp;
@@ -2456,10 +2654,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="language"                data-endpoint="POSTapi-short-links--id--additional_info"
-               value="culpa"
+               value="laborum"
                data-component="body">
     <br>
-<p>Example: <code>culpa</code></p>
+<p>Example: <code>laborum</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>platform</code></b>&nbsp;&nbsp;
@@ -2467,10 +2665,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="platform"                data-endpoint="POSTapi-short-links--id--additional_info"
-               value="dolor"
+               value="sit"
                data-component="body">
     <br>
-<p>Example: <code>dolor</code></p>
+<p>Example: <code>sit</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>screenResolution</code></b>&nbsp;&nbsp;
@@ -2478,10 +2676,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="screenResolution"                data-endpoint="POSTapi-short-links--id--additional_info"
-               value="hic"
+               value="quis"
                data-component="body">
     <br>
-<p>Example: <code>hic</code></p>
+<p>Example: <code>quis</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>colorDepth</code></b>&nbsp;&nbsp;
@@ -2489,10 +2687,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="colorDepth"                data-endpoint="POSTapi-short-links--id--additional_info"
-               value="20"
+               value="3"
                data-component="body">
     <br>
-<p>Example: <code>20</code></p>
+<p>Example: <code>3</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>timezone</code></b>&nbsp;&nbsp;
@@ -2500,10 +2698,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="timezone"                data-endpoint="POSTapi-short-links--id--additional_info"
-               value="Indian/Mayotte"
+               value="Antarctica/Mawson"
                data-component="body">
     <br>
-<p>Example: <code>Indian/Mayotte</code></p>
+<p>Example: <code>Antarctica/Mawson</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>plugins</code></b>&nbsp;&nbsp;
@@ -2543,10 +2741,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="hardwareConcurrency"                data-endpoint="POSTapi-short-links--id--additional_info"
-               value="3"
+               value="1"
                data-component="body">
     <br>
-<p>Example: <code>3</code></p>
+<p>Example: <code>1</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>onlineStatus</code></b>&nbsp;&nbsp;
@@ -2575,10 +2773,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="viewportSize"                data-endpoint="POSTapi-short-links--id--additional_info"
-               value="hic"
+               value="ut"
                data-component="body">
     <br>
-<p>Example: <code>hic</code></p>
+<p>Example: <code>ut</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>canvasFingerprint</code></b>&nbsp;&nbsp;
@@ -2586,10 +2784,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="canvasFingerprint"                data-endpoint="POSTapi-short-links--id--additional_info"
-               value="cumque"
+               value="consequuntur"
                data-component="body">
     <br>
-<p>Example: <code>cumque</code></p>
+<p>Example: <code>consequuntur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>installedFonts</code></b>&nbsp;&nbsp;
@@ -2608,10 +2806,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="browserName"                data-endpoint="POSTapi-short-links--id--additional_info"
-               value="minima"
+               value="corporis"
                data-component="body">
     <br>
-<p>Example: <code>minima</code></p>
+<p>Example: <code>corporis</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>browserVersion</code></b>&nbsp;&nbsp;
@@ -2619,10 +2817,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="browserVersion"                data-endpoint="POSTapi-short-links--id--additional_info"
-               value="occaecati"
+               value="cumque"
                data-component="body">
     <br>
-<p>Example: <code>occaecati</code></p>
+<p>Example: <code>cumque</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>windowSize</code></b>&nbsp;&nbsp;
@@ -2654,7 +2852,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>sessionStorageAvailable</code></b>&nbsp;&nbsp;
@@ -2675,7 +2873,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>cssProperties</code></b>&nbsp;&nbsp;

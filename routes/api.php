@@ -12,6 +12,8 @@ Route::middleware('auth:api')->group(function () {
     Route::apiResource('users', UserController::class)->except('store', 'show');
     Route::apiResource('short-links', ShortLinkController::class)->except('show');
     Route::post('short-links', [ShortLinkController::class, 'store'])->name('short-links.store')->middleware('throttle:5,1');
+    Route::get('/short-links/{id}/additional_info', [ShortlLinkDataCollectController::class, 'index'])
+        ->name('short-links-additional-data.index');
 });
 
 Route::get('short-links/{short_link}', [ShortLinkController::class, 'show'])->name('short-links.show');

@@ -68,9 +68,18 @@ class ShortLinkController extends Controller
         $perPage = $request->input('per_page', 10);
         $page = $request->input('page', 1);
 
-        $links = $this->shortLinkService->getShortLinks($perPage, $page);
+        $data = $this->shortLinkService->getShortLinks($perPage, $page);
 
-        return response()->json($links);
+        $response = [
+            'current_page' => $data->currentPage(),
+            'total' => $data->total(),
+            'data' => $data->items(),
+            'per_page' => $data->perPage(),
+            'from' => $data->firstItem(),
+            'to' => $data->lastItem(),
+        ];
+
+        return response()->json($response);
     }
 
     /**

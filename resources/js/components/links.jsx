@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import StatisticsModal from './statisticsModal';
 
 const ShortLinksList = ({ getToken }) => {
     const [shortLinks, setShortLinks] = useState([]);
@@ -7,6 +8,8 @@ const ShortLinksList = ({ getToken }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [perPage, setPerPage] = useState(100);
     const [totalPages, setTotalPages] = useState(0);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedLinkId, setSelectedLinkId] = useState(null);
 
     const fetchShortLinks = async (page) => {
         try {
@@ -21,13 +24,11 @@ const ShortLinksList = ({ getToken }) => {
 
             if (!response.ok) {
                 const errorData = await response.json();
-                console.error(errorData)
+                throw new Error(errorData.error || 'Failed to fetch short links');
             }
 
             const data = await response.text();
             const parsedData = JSON.parse(data);
-
-            console.log(parsedData)
 
             setShortLinks(parsedData.data);
             setTotalPages(Math.ceil(parsedData.total / perPage));
@@ -52,6 +53,16 @@ const ShortLinksList = ({ getToken }) => {
         if (currentPage > 1) {
             setCurrentPage((prevPage) => prevPage - 1);
         }
+    };
+
+    const openStatistics = (linkId) => {
+        setSelectedLinkId(linkId);
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setSelectedLinkId(null);
     };
 
     if (loading) {
@@ -79,11 +90,17 @@ const ShortLinksList = ({ getToken }) => {
                 {shortLinks.map(link => (
                     <li key={link.id}>
                         <div className={"card border m-1 p-3"}>
-                            Short: <a href={link.short_link} target="_blank">
-                                {link.short_link}
+                            Short: <a href={link.short_link} target="_blank" rel="noopener noreferrer">
+                            {link.short_link}
                         </a> <br/>
-                            Original: <a href={link.link} target="_blank">{link.link}</a> <br/>
-                            <button className={"btn btn-primary mt-3"} style={{ 'max-width' : '200px'}}> Open statistics </button>
+                            Original: <a href={link.link} target="_blank" rel="noopener noreferrer">{link.link}</a> <br/>
+                            <button
+                                className={"btn btn-primary mt-3"}
+                                style={{ 'max-width' : '200px'}}
+                                onClick={() => openStatistics(link.id)}
+                            >
+                                Open statistics
+                            </button>
                         </div>
                     </li>
                 ))}
@@ -97,6 +114,12 @@ const ShortLinksList = ({ getToken }) => {
                 </button>
             </div>
             <p>Page {currentPage} of {totalPages}</p>
+
+            { isModalOpen && <StatisticsModal
+                onClose={closeModal}
+                linkId={selectedLinkId}
+                getToken={getToken}
+            /> }
         </div>
     );
 };

@@ -78,12 +78,12 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: tchamplin@example.org
+                  example: retha77@example.com
                   nullable: false
                 password:
                   type: string
                   description: ''
-                  example: hRz3hxx!~(A)m
+                  example: '#a89GYz3'
                   nullable: false
               required:
                 - email
@@ -203,22 +203,22 @@ paths:
                 limit:
                   type: integer
                   description: 'Must be at least 1. Must not be greater than 500.'
-                  example: 25
+                  example: 19
                   nullable: false
                 page:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 16
+                  example: 22
                   nullable: false
                 name:
                   type: string
                   description: ''
-                  example: inventore
+                  example: qui
                   nullable: true
                 email:
                   type: string
                   description: ''
-                  example: nienow.edna@example.net
+                  example: gconroy@example.net
                   nullable: true
       security: []
     post:
@@ -259,17 +259,17 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: fswldsaksm
+                  example: olqmypiaiy
                   nullable: false
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: vidal.abbott@example.com
+                  example: bernhard.christina@example.net
                   nullable: false
                 password:
                   type: string
                   description: 'Must be at least 6 characters.'
-                  example: 'r77%jws&%'
+                  example: '1k-:e?Q.,Kca-3A!_'
                   nullable: false
               required:
                 - name
@@ -339,17 +339,17 @@ paths:
                 name:
                   type: string
                   description: 'optional required The name of the user.'
-                  example: id
+                  example: non
                   nullable: false
                 email:
                   type: string
                   description: 'optional required The email of the user.'
-                  example: ureilly@example.org
+                  example: francesca00@example.net
                   nullable: false
                 password:
                   type: string
                   description: 'optional The password of the user.'
-                  example: ':c|fJj'
+                  example: 'sMga1@)['
                   nullable: false
                 role:
                   type: string
@@ -454,12 +454,12 @@ paths:
                 per_page:
                   type: integer
                   description: 'Must be at least 1. Must not be greater than 100.'
-                  example: 18
+                  example: 10
                   nullable: true
                 page:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 16
+                  example: 89
                   nullable: true
       security: []
     post:
@@ -511,7 +511,7 @@ paths:
                 url:
                   type: string
                   description: 'Must be a valid URL.'
-                  example: 'http://conn.net/nostrum-a-mollitia-est-optio-veniam-dolor'
+                  example: 'https://cummings.biz/reiciendis-dolores-nostrum-vel-voluptate-quibusdam-est.html'
                   nullable: false
                 use_js_redirect:
                   type: boolean
@@ -678,17 +678,59 @@ paths:
         in: path
         name: id
         description: 'The ID of the short link.'
-        example: occaecati
+        example: nisi
         required: true
         schema:
           type: string
   '/api/short-links/{id}/additional_info':
-    post:
-      summary: ''
-      operationId: postApiShortLinksIdAdditional_info
+    get:
+      summary: 'Get list of links visitors'
+      operationId: getListOfLinksVisitors
       description: ''
       parameters: []
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"current_page\" : 1\n\"data\": [\n     {\n       \"id\": \"uuid-1\",\n       \"short_link_id\": 1,\n       \"user_agent\": \"Mozilla/5.0 ...\",\n       \"ip_address\": \"192.168.1.1\",\n       \"session_uuid\": \"uuid-session-1\",\n       \"latest_additional_info\": {\n       \"id\": 1,\n       \"created_at\": \"2023-10-01T12:00:00Z\",\n       \"updated_at\": \"2023-10-01T12:00:00Z\"\n       }\n     },\n     {\n       \"id\": \"uuid-2\",\n       \"short_link_id\": 1,\n       \"user_agent\": \"Mozilla/5.0 ...\",\n       \"ip_address\": \"192.168.1.2\",\n       \"session_uuid\": \"uuid-session-2\",\n       \"additional_info\": null\n     }\n   ]\n\"per_page\" : 10,\n\"to\" : 1,\n\"total\" : 1\n}"
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: Unauthenticated
+                properties:
+                  error:
+                    type: string
+                    example: Unauthenticated
+        403:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"error\": \"Unauthorized\"\n}\n/"
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: 'Save data from js. Always return OK'
+      operationId: saveDataFromJsAlwaysReturnOK
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n \"message\": \"Data successfully saved\",\n}"
       tags:
         - Endpoints
       requestBody:
@@ -701,32 +743,32 @@ paths:
                 userAgent:
                   type: string
                   description: ''
-                  example: molestias
+                  example: ipsa
                   nullable: false
                 language:
                   type: string
                   description: ''
-                  example: culpa
+                  example: laborum
                   nullable: false
                 platform:
                   type: string
                   description: ''
-                  example: dolor
+                  example: sit
                   nullable: false
                 screenResolution:
                   type: string
                   description: ''
-                  example: hic
+                  example: quis
                   nullable: false
                 colorDepth:
                   type: integer
                   description: ''
-                  example: 20
+                  example: 3
                   nullable: false
                 timezone:
                   type: string
                   description: ''
-                  example: Indian/Mayotte
+                  example: Antarctica/Mawson
                   nullable: false
                 plugins:
                   type: object
@@ -742,7 +784,7 @@ paths:
                 hardwareConcurrency:
                   type: integer
                   description: ''
-                  example: 3
+                  example: 1
                   nullable: false
                 onlineStatus:
                   type: boolean
@@ -752,12 +794,12 @@ paths:
                 viewportSize:
                   type: string
                   description: ''
-                  example: hic
+                  example: ut
                   nullable: false
                 canvasFingerprint:
                   type: string
                   description: ''
-                  example: cumque
+                  example: consequuntur
                   nullable: false
                 installedFonts:
                   type: object
@@ -768,12 +810,12 @@ paths:
                 browserName:
                   type: string
                   description: ''
-                  example: minima
+                  example: corporis
                   nullable: false
                 browserVersion:
                   type: string
                   description: ''
-                  example: occaecati
+                  example: cumque
                   nullable: false
                 windowSize:
                   type: object
@@ -784,12 +826,12 @@ paths:
                 localStorageAvailable:
                   type: boolean
                   description: ''
-                  example: false
+                  example: true
                   nullable: false
                 sessionStorageAvailable:
                   type: boolean
                   description: ''
-                  example: false
+                  example: true
                   nullable: false
                 cssProperties:
                   type: object
@@ -823,7 +865,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the short link.'
-        example: non
+        example: placeat
         required: true
         schema:
           type: string
