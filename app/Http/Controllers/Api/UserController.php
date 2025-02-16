@@ -79,13 +79,14 @@ class UserController extends Controller
      * }
      *
      */
-    public function store(CreateUserRequest $request): void
+    public function store(CreateUserRequest $request): \Illuminate\Http\JsonResponse
     {
-        $this->userService->create(
+        $user = $this->userService->create(
             $request->input('name'),
             $request->input('email'),
             $request->input('password')
         );
+        return response()->json($user, 201);
     }
 
     /**

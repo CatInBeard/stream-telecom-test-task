@@ -9,6 +9,8 @@ use App\Services\ShortLinkService;
 use App\Services\UTMService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Auth;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use Tests\TestCase;
 
 class ShortLinkServiceTest extends TestCase
@@ -28,7 +30,7 @@ class ShortLinkServiceTest extends TestCase
         $this->user = User::factory()->create();
     }
 
-    public function testCreateShortLinkAddsUtmIfNotPresent()
+    #[RunInSeparateProcess] #[PreserveGlobalState(false)] public function testCreateShortLinkAddsUtmIfNotPresent()
     {
         $url = 'http://example.com';
         $this->utmService->method('checkUtm')->willReturn(false);
@@ -43,7 +45,7 @@ class ShortLinkServiceTest extends TestCase
         $this->assertEquals(1, $shortLink->user_id);
     }
 
-    public function testGetShortLinksReturnsPaginatedLinks()
+    #[RunInSeparateProcess] #[PreserveGlobalState(false)] public function testGetShortLinksReturnsPaginatedLinks()
     {
         ShortLink::factory()->count(15)->create(['user_id' => $this->user->id]);
 
@@ -55,7 +57,7 @@ class ShortLinkServiceTest extends TestCase
         $this->assertEquals(2, $links->lastPage());
     }
 
-    public function testGetShortLinkByIdReturnsLink()
+    #[RunInSeparateProcess] #[PreserveGlobalState(false)] public function testGetShortLinkByIdReturnsLink()
     {
         $shortLink = ShortLink::factory()->create();
 
@@ -64,7 +66,7 @@ class ShortLinkServiceTest extends TestCase
         $this->assertEquals($shortLink->id, $result->id);
     }
 
-    public function testGetLinkByShortLinkReturnsLink()
+    #[RunInSeparateProcess] #[PreserveGlobalState(false)] public function testGetLinkByShortLinkReturnsLink()
     {
         $shortLink = ShortLink::factory()->create();
 
@@ -73,25 +75,27 @@ class ShortLinkServiceTest extends TestCase
         $this->assertEquals($shortLink->id, $result->id);
     }
 
-    public function testGetShortLinkByLinkThrowsExceptionIfNotFound()
+    #[RunInSeparateProcess] #[PreserveGlobalState(false)] public function testGetShortLinkByLinkThrowsExceptionIfNotFound()
     {
         $this->expectException(ErrorJsonException::class);
 
         $this->shortLinkService->getShortLinkByLink('nel');
     }
 
-    public function testUpdateShortLink()
+    #[RunInSeparateProcess] #[PreserveGlobalState(false)] public function testUpdateShortLink()
     {
         $shortLink = ShortLink::factory()->create(['user_id' => $this->user->id]);
         Auth::shouldReceive('user')->andReturn($this->user);
 
-        $updatedLink = $this->shortLinkService->updateShortLink($shortLink->id, 'http://new-url.com', true);
+        $this->utmService->method('checkUtm')->willReturn(true);
 
-        $this->assertEquals('http://new-url.com', $updatedLink->link);
+        $updatedLink = $this->shortLinkService->updateShortLink($shortLink->id, 'http://example.com/test', true);
+
+        $this->assertEquals('http://example.com/test', $updatedLink->link);
         $this->assertTrue($updatedLink->use_js_redirect);
     }
 
-    public function testDeleteShortLinkDeletesLink()
+    #[RunInSeparateProcess] #[PreserveGlobalState(false)] public function testDeleteShortLinkDeletesLink()
     {
         $shortLink = ShortLink::factory()->create(['user_id' => $this->user->id]);
         Auth::shouldReceive('user')->andReturn($this->user);

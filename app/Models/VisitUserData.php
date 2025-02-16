@@ -2,13 +2,16 @@
 
 namespace App\Models;
 
+use Database\Factories\VisitUserDataFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class VisitUserData extends Model
 {
-    use HasFactory, SoftDeletes;
+    /** @use HasFactory<VisitUserDataFactory> */
+    use HasFactory;
+    use SoftDeletes;
 
     protected $keyType = 'string';
     public $incrementing = false;
@@ -29,10 +32,5 @@ class VisitUserData extends Model
     public function additionalVisitInfos(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(AdditionalVisitInfo::class);
-    }
-
-    public function firstAdditionalVisitInfo(): \Illuminate\Database\Eloquent\Relations\HasOne
-    {
-        return $this->hasOne(AdditionalVisitInfo::class)->latest();
     }
 }

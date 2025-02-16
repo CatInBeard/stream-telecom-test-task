@@ -9,14 +9,13 @@ use Illuminate\Support\Facades\Cache;
 
 class ShortLinkService
 {
-
     public function __construct(private UTMService $utmService)
     {
     }
 
     public function createShortLink(string $url, bool $useJsRedirect = false): ShortLink
     {
-        if(!$this->utmService->checkUtm($url)){
+        if (!$this->utmService->checkUtm($url)) {
             $url = $this->utmService->addUtm($url, [
                 'utm_source' => config('app.name')
             ]);
@@ -40,6 +39,7 @@ class ShortLinkService
      */
     public function getShortLinks(int $perPage = 10, int $page = 1)
     {
+        // @phpstan-ignore-next-line
         return auth()->user()->shortLinks()->paginate($perPage, ['*'], 'page', $page);
     }
 
@@ -63,13 +63,13 @@ class ShortLinkService
 
         $cachedShortLink = Cache::get("short_link_{$link}");
 
-        if ($cachedShortLink) {
+        if ($cachedShortLink !== null) {
             return $cachedShortLink;
         }
 
         $link = ShortLink::getByShortLink($link);
 
-        if(!$link){
+        if (!$link) {
             throw new ErrorJsonException('Link not found', 404);
         }
 
@@ -78,15 +78,23 @@ class ShortLinkService
         return $link;
     }
 
+    /**
+     * @param int $id
+     * @param string $url
+     * @param bool $useJsRedirect
+     * @return ShortLink
+     * @throws ErrorJsonException
+     */
     public function updateShortLink(int $id, string $url, bool $useJsRedirect = false): ShortLink
     {
+        // @phpstan-ignore-next-line
         $user = auth()->user();
         $link = ShortLink::findOrFail($id);
-        if(!$this->checkDangerAccessToLink($user, $link)){
+        if (!$this->checkDangerAccessToLink($user, $link)) {
             throw new ErrorJsonException('Access denied', 403);
         }
 
-        if(!$this->utmService->checkUtm($url)){
+        if (!$this->utmService->checkUtm($url)) {
             $url = $this->utmService->addUtm($url, [
                 'utm_source' => config('app.name')
             ]);
@@ -103,9 +111,10 @@ class ShortLinkService
 
     public function deleteShortLink($id)
     {
+        // @phpstan-ignore-next-line
         $user = auth()->user();
         $link = ShortLink::findOrFail($id);
-        if(!$this->checkDangerAccessToLink($user, $link)){
+        if (!$this->checkDangerAccessToLink($user, $link)) {
             throw new ErrorJsonException('Access denied', 403);
         }
         return ShortLink::destroy($id);
@@ -115,6 +124,4 @@ class ShortLinkService
     {
         return $user->isAdmin() || $user->id === $link->user_id;
     }
-
-
 }

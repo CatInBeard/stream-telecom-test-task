@@ -2,13 +2,16 @@
 
 namespace App\Models;
 
+use Database\Factories\AdditionalVisitInfoFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AdditionalVisitInfo extends Model
 {
-    use HasFactory, SoftDeletes;
+    /** @use HasFactory<AdditionalVisitInfoFactory> */
+    use HasFactory;
+    use SoftDeletes;
 
     protected $fillable = [
         'userAgent',
@@ -44,5 +47,4 @@ class AdditionalVisitInfo extends Model
     {
         return $this->belongsTo(VisitUserData::class);
     }
-
 }

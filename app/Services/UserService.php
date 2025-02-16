@@ -110,5 +110,4 @@ class UserService
     {
         return Auth::user();
     }
-
 }

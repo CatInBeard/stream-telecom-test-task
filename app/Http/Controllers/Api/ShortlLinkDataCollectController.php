@@ -28,16 +28,14 @@ class ShortlLinkDataCollectController
      * @param $id
      * @return JsonResponse
      */
-    public function store(StoreAdditionalVisitInfoRequest $request, $id){
-        try{
+    public function store(StoreAdditionalVisitInfoRequest $request, $id)
+    {
+        try {
             $this->visitDataService->saveAdditionalData($request->validated(), $id);
-        }
-        catch (ValidationException $exception){
-        }
-        finally {
+        } catch (ValidationException $exception) {
+        } finally {
             return response()->json(["message" => "Data successfully saved"], 201);
         }
-
     }
 
     /**
@@ -84,7 +82,7 @@ class ShortlLinkDataCollectController
      * }
      * /
      *
-     * @param Request $request
+     * @param GetShortLinksStatisticsRequest $request
      * @param $id
      * @return JsonResponse
      */

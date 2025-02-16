@@ -9,13 +9,19 @@ use Illuminate\Support\Str;
 
 class VisitDataService
 {
-    public function createPrimaryData(ShortLink $shortLink, string $userAgent, string $ipAddress, ?string $sesionUUID = null){
+    public function createPrimaryData(
+        ShortLink $shortLink,
+        string $userAgent,
+        string $ipAddress,
+        ?string $sessionUUID = null
+    )
+    {
         return VisitUserData::create([
             'id' => (string) Str::uuid(),
             'short_link_id' => $shortLink->id,
             'user_agent' => $userAgent,
             'ip_address' => $ipAddress,
-            'session_uuid' => $sesionUUID ?? (string) Str::uuid(),
+            'session_uuid' => $sessionUUID ?? (string) Str::uuid(),
         ]);
     }
 
@@ -27,17 +33,11 @@ class VisitDataService
 
     public function getFullDataByShortLink($shortLinkId, $limit = 100, $page = 1)
     {
-
         $visitUserData = VisitUserData::where('short_link_id', $shortLinkId)
+            ->with(['additionalVisitInfos' => function ($query) {
+                $query->orderBy('created_at', 'desc')->limit(1);
+            }])
             ->paginate($limit, ['*'], 'page', $page);
-
-        $visitUserData->getCollection()->transform(function ($visit) {
-            $visit->additional_info = AdditionalVisitInfo::where('visit_user_data_id', $visit->id)
-                ->orderBy('created_at', 'desc')
-                ->first();
-
-            return $visit;
-        });
 
         return $visitUserData;
     }

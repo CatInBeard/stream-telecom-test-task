@@ -10,7 +10,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class ShortLink extends Model
 {
     /** @use HasFactory<ShortLinkFactory> */
-    use HasFactory, SoftDeletes;
+    use HasFactory;
+    use SoftDeletes;
 
     protected $fillable = [
         'link',
@@ -27,14 +28,15 @@ class ShortLink extends Model
 
     public function getShortLinkAttribute()
     {
-        return route('redirect-link.show', ['link' => base_convert($this->id, 10, 36)]);
+        return route('redirect-link.show', ['link' => base_convert((string) $this->id, 10, 36)]);
     }
 
-    public function getShortLinkPart(){
-        return base_convert($this->id, 10, 36);
+    public function getShortLinkPart()
+    {
+        return base_convert((string) $this->id, 10, 36);
     }
 
-    public static function getByShortLink($shortLink)
+    public static function getByShortLink(string $shortLink)
     {
         return self::where('id', base_convert($shortLink, 36, 10))->first();
     }

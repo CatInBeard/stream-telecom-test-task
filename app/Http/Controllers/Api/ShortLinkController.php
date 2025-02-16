@@ -15,15 +15,16 @@ use Illuminate\Http\Request;
 
 class ShortLinkController extends Controller
 {
-
     /**
      * @group Short links Management
      *
      * APIs for managing short links
      */
 
-    public function __construct(private ShortLinkService $shortLinkService, private LinkValidationService $linkValidationService)
-    {
+    public function __construct(
+        private ShortLinkService $shortLinkService,
+        private LinkValidationService $linkValidationService
+    ) {
     }
 
     /**

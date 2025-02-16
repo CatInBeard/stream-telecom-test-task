@@ -64,7 +64,7 @@ class LinkValidationService
                     'max' => 0,
                 ],
             ]);
-            if (!$response->getStatusCode() == 200) {
+            if (!($response->getStatusCode() === 200)) {
                 throw new ErrorJsonException('You must provide valid link with correct HTTP request', 400);
             }
         } catch (\GuzzleHttp\Exception\RequestException $e) {
@@ -77,9 +77,5 @@ class LinkValidationService
         } catch (GuzzleException $e) {
             throw new ErrorJsonException('Can\'t open provided link', 400);
         }
-
     }
-
-
-
 }

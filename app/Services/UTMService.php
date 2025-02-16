@@ -35,5 +35,4 @@ class UTMService
         $queryString = http_build_query($queryParams);
         return $parsedUrl['scheme'] . '://' . $parsedUrl['host'] . ($parsedUrl['path'] ?? "") . '?' . $queryString;
     }
-
 }

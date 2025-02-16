@@ -6,6 +6,7 @@ use App\Exceptions\ErrorJsonException;
 use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Mockery;
@@ -15,6 +16,7 @@ use Tests\TestCase;
 
 class UserServiceTest extends TestCase
 {
+    use WithFaker;
     protected UserService $userService;
 
     protected function setUp(): void
@@ -25,11 +27,11 @@ class UserServiceTest extends TestCase
 
     #[RunInSeparateProcess] #[PreserveGlobalState(false)] public function testCreateUser()
     {
-        $email = 'test@example.com';
+        $email = $this->faker->unique()->safeEmail;
         $password = 'password123';
         $name = 'Test User';
 
-        $user = $this->userService->create($email, $password, $name);
+        $user = $this->userService->create($name, $email, $password);
 
         $this->assertInstanceOf(User::class, $user);
         $this->assertEquals($email, $user->email);

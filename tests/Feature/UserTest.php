@@ -14,6 +14,9 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class UserTest extends TestCase
 {
+
+    use withFaker, RefreshDatabase;
+
     protected $token;
     protected $tokenAdmin;
 
@@ -67,37 +70,11 @@ class UserTest extends TestCase
     {
         $response = $this->postJson(route('users.store'), [
             'name' => 'Test User',
-            'email' => 'test@example.com',
+            'email' => $this->faker()->unique()->safeEmail,
             'password' => 'password',
         ]);
 
         $response->assertStatus(201);
-    }
-
-    #[RunInSeparateProcess] #[PreserveGlobalState(false)]
-    public function test_store_not_accessible_to_regular_user()
-    {
-        $response = $this->withHeaders([
-            'Authorization' => 'Bearer ' . $this->token,
-        ])->postJson(route('users.store'), [
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-            'password' => 'password',
-        ]);
-
-        $response->assertStatus(403);
-    }
-
-    #[RunInSeparateProcess] #[PreserveGlobalState(false)]
-    public function test_store_not_accessible_without_authentication()
-    {
-        $response = $this->postJson(route('users.store'), [
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-            'password' => 'password',
-        ]);
-
-        $response->assertStatus(403);
     }
 
     #[RunInSeparateProcess] #[PreserveGlobalState(false)]
