@@ -78,12 +78,12 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: floy28@example.com
+                  example: colin07@example.org
                   nullable: false
                 password:
                   type: string
                   description: ''
-                  example: ++-1C0u
+                  example: .jEm;W
                   nullable: false
               required:
                 - email
@@ -203,22 +203,22 @@ paths:
                 limit:
                   type: integer
                   description: 'Must be at least 1. Must not be greater than 500.'
-                  example: 10
+                  example: 3
                   nullable: false
                 page:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 25
+                  example: 83
                   nullable: false
                 name:
                   type: string
                   description: ''
-                  example: consequatur
+                  example: debitis
                   nullable: true
                 email:
                   type: string
                   description: ''
-                  example: ahmad.smitham@example.org
+                  example: bergnaum.russel@example.net
                   nullable: true
       security: []
     post:
@@ -259,17 +259,17 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: ytvkvdawbz
+                  example: mlgrojkmcbweedtebra
                   nullable: false
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: reina.keebler@example.org
+                  example: medhurst.trevor@example.org
                   nullable: false
                 password:
                   type: string
                   description: 'Must be at least 6 characters.'
-                  example: "M{~?31zu*dY%f',3F"
+                  example: '.;TH*||}(lD'
                   nullable: false
               required:
                 - name
@@ -277,59 +277,6 @@ paths:
                 - password
       security: []
   '/api/users/{id}':
-    get:
-      summary: 'Show user'
-      operationId: showUser
-      description: 'You can get user by id. If not admin, you can get only yourself'
-      parameters: []
-      responses:
-        200:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  id: 1
-                  name: 'John Doe'
-                  email: john@example.com
-                properties:
-                  id:
-                    type: integer
-                    example: 1
-                  name:
-                    type: string
-                    example: 'John Doe'
-                  email:
-                    type: string
-                    example: john@example.com
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  error: Unauthenticated
-                properties:
-                  error:
-                    type: string
-                    example: Unauthenticated
-        403:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  error: Unauthorized
-                properties:
-                  error:
-                    type: string
-                    example: Unauthorized
-      tags:
-        - Endpoints
-      security: []
     put:
       summary: 'Update user info'
       operationId: updateUserInfo
@@ -392,17 +339,17 @@ paths:
                 name:
                   type: string
                   description: 'optional required The name of the user.'
-                  example: facere
+                  example: at
                   nullable: false
                 email:
                   type: string
                   description: 'optional required The email of the user.'
-                  example: cathryn97@example.net
+                  example: runte.tracy@example.com
                   nullable: false
                 password:
                   type: string
                   description: 'optional The password of the user.'
-                  example: "(7*coGm,'g`1;M^!hR"
+                  example: '+;IsB>s/i''86\>0lE'
                   nullable: false
                 role:
                   type: string
@@ -453,10 +400,298 @@ paths:
         in: path
         name: id
         description: 'The ID of the user.'
-        example: 16
+        example: 1
         required: true
         schema:
           type: integer
+  /api/short-links:
+    get:
+      summary: 'Get list of short links'
+      operationId: getListOfShortLinks
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "[\n   {\n     \"id\": 1,\n     \"link\": \"https://example.com\",\n     \"use_js_redirect\": \"false\",\n     \"user_id\": 1,\n     \"short_link\": https://example.com/a3ew\n   },\n   {\n     \"id\": 2,\n     \"link\": \"https://example.com/2\",\n     \"use_js_redirect\": \"false\"\n     \"user_id\": 22,\n     \"short_link\": https://example.com/b3ew\n   }\n ]"
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: Unauthenticated
+                properties:
+                  error:
+                    type: string
+                    example: Unauthenticated
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: Unauthorized
+                properties:
+                  error:
+                    type: string
+                    example: Unauthorized
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                per_page:
+                  type: integer
+                  description: 'Must be at least 1. Must not be greater than 100.'
+                  example: 7
+                  nullable: true
+                page:
+                  type: integer
+                  description: 'Must be at least 1.'
+                  example: 13
+                  nullable: true
+      security: []
+    post:
+      summary: 'Create new short link'
+      operationId: createNewShortLink
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"id\": 1,\n\"link\": \"https://example.com\",\n\"use_js_redirect\": \"false\",\n\"user_id\": 1,\n\"short_link\": https://example.com/a3ew\n}"
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: Unauthenticated
+                properties:
+                  error:
+                    type: string
+                    example: Unauthenticated
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: Unauthorized
+                properties:
+                  error:
+                    type: string
+                    example: Unauthorized
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  type: string
+                  description: 'Must be a valid URL.'
+                  example: 'http://botsford.com/'
+                  nullable: false
+                use_js_redirect:
+                  type: boolean
+                  description: ''
+                  example: false
+                  nullable: false
+              required:
+                - url
+      security: []
+  '/api/short-links/{id}':
+    put:
+      summary: '/**'
+      operationId: ''
+      description: 'Update short link by id'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"id\": 1,\n\"link\": \"https://example.com\",\n\"use_js_redirect\": \"false\",\n\"user_id\": 1,\n\"short_link\": https://example.com/a3ew\n}"
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: Unauthenticated
+                properties:
+                  error:
+                    type: string
+                    example: Unauthenticated
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: Unauthorized
+                properties:
+                  error:
+                    type: string
+                    example: Unauthorized
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'Link not found'
+                properties:
+                  error:
+                    type: string
+                    example: 'Link not found'
+      tags:
+        - Endpoints
+      security: []
+    delete:
+      summary: 'Create new short link'
+      operationId: createNewShortLink
+      description: ''
+      parameters: []
+      responses:
+        204:
+          description: ''
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: Unauthenticated
+                properties:
+                  error:
+                    type: string
+                    example: Unauthenticated
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: Unauthorized
+                properties:
+                  error:
+                    type: string
+                    example: Unauthorized
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'Link not found'
+                properties:
+                  error:
+                    type: string
+                    example: 'Link not found'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the short link.'
+        example: ea
+        required: true
+        schema:
+          type: string
+  '/api/short-links/{shortLink}':
+    get:
+      summary: 'Get short link by id'
+      operationId: getShortLinkById
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"id\": 1,\n\"link\": \"https://example.com\",\n\"use_js_redirect\": \"false\",\n\"user_id\": 1,\n\"short_link\": https://example.com/a3ew\n}"
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: Unauthenticated
+                properties:
+                  error:
+                    type: string
+                    example: Unauthenticated
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: Unauthorized
+                properties:
+                  error:
+                    type: string
+                    example: Unauthorized
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: 'Link not found'
+                properties:
+                  error:
+                    type: string
+                    example: 'Link not found'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: shortLink
+        description: ''
+        example: hic
+        required: true
+        schema:
+          type: string
 tags:
   -
     name: Endpoints

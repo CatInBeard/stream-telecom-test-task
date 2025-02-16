@@ -87,4 +87,9 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->filters;
     }
+
+    public function shortLinks(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(ShortLink::class);
+    }
 }

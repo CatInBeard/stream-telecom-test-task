@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "c6f43967-462a-4a7d-a765-84484422ce25",
+        "_postman_id": "e046c08d-82c6-4ea2-a842-04cbb769a21d",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -141,7 +141,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"limit\":10,\"page\":25,\"name\":\"consequatur\",\"email\":\"ahmad.smitham@example.org\"}"
+                            "raw": "{\"limit\":3,\"page\":83,\"name\":\"debitis\",\"email\":\"bergnaum.russel@example.net\"}"
                         },
                         "description": "Only users with admin role can use this endpoint",
                         "auth": {
@@ -153,65 +153,6 @@
                             "header": [],
                             "code": 200,
                             "body": "[\n   {\n     \"id\": 1,\n     \"name\": \"John Doe\",\n     \"email\": \"john@example.com\"\n   },\n   {\n     \"id\": 2,\n     \"name\": \"Jane Smith\",\n     \"email\": \"jane@example.com\"\n   }\n ]",
-                            "name": ""
-                        },
-                        {
-                            "header": [],
-                            "code": 401,
-                            "body": "{\n  \"error\": \"Unauthenticated\"\n}",
-                            "name": ""
-                        },
-                        {
-                            "header": [],
-                            "code": 403,
-                            "body": "{\n  \"error\": \"Unauthorized\"\n}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Show user",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/users\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/users\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "16",
-                                    "description": "The ID of the user."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Authorization",
-                                "value": "Bearer token"
-                            },
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "You can get user by id. If not admin, you can get only yourself",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n     \"id\": 1,\n     \"name\": \"John Doe\",\n     \"email\": \"john@example.com\"\n}",
                             "name": ""
                         },
                         {
@@ -262,7 +203,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"facere\",\"email\":\"cathryn97@example.net\",\"password\":\"(7*coGm,'g`1;M^!hR\",\"role\":\"admin\"}"
+                            "raw": "{\"name\":\"at\",\"email\":\"runte.tracy@example.com\",\"password\":\"+;IsB>s\\\/i'86\\\\>0lE\",\"role\":\"admin\"}"
                         },
                         "description": "You can see update only yourself if not admin",
                         "auth": {
@@ -302,7 +243,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "18",
+                                    "value": "1",
                                     "description": "The ID of the user."
                                 }
                             ]
@@ -350,6 +291,309 @@
                     ]
                 },
                 {
+                    "name": "Get list of short links",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/short-links",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/short-links"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer token"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"per_page\":7,\"page\":13}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "[\n   {\n     \"id\": 1,\n     \"link\": \"https:\/\/example.com\",\n     \"use_js_redirect\": \"false\",\n     \"user_id\": 1,\n     \"short_link\": https:\/\/example.com\/a3ew\n   },\n   {\n     \"id\": 2,\n     \"link\": \"https:\/\/example.com\/2\",\n     \"use_js_redirect\": \"false\"\n     \"user_id\": 22,\n     \"short_link\": https:\/\/example.com\/b3ew\n   }\n ]",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n  \"error\": \"Unauthenticated\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n  \"error\": \"Unauthorized\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create new short link",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/short-links",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/short-links"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer token"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"url\":\"http:\\\/\\\/botsford.com\\\/\",\"use_js_redirect\":false}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n\"id\": 1,\n\"link\": \"https:\/\/example.com\",\n\"use_js_redirect\": \"false\",\n\"user_id\": 1,\n\"short_link\": https:\/\/example.com\/a3ew\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"error\": \"Unauthenticated\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n\"error\": \"Unauthorized\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "\/**",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/short-links\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/short-links\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "ea",
+                                    "description": "The ID of the short link."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer token"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Update short link by id",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"id\": 1,\n\"link\": \"https:\/\/example.com\",\n\"use_js_redirect\": \"false\",\n\"user_id\": 1,\n\"short_link\": https:\/\/example.com\/a3ew\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"error\": \"Unauthenticated\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n\"error\": \"Unauthorized\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n\"error\": \"Link not found\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create new short link",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/short-links\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/short-links\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "illo",
+                                    "description": "The ID of the short link."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer token"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{\n\"message\": \"Link deleted successfully\",\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"error\": \"Unauthenticated\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n\"error\": \"Unauthorized\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n \"error\": \"Link not found\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get short link by id",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/short-links\/:shortLink",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/short-links\/:shortLink",
+                            "variable": [
+                                {
+                                    "id": "shortLink",
+                                    "key": "shortLink",
+                                    "value": "hic",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer token"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"id\": 1,\n\"link\": \"https:\/\/example.com\",\n\"use_js_redirect\": \"false\",\n\"user_id\": 1,\n\"short_link\": https:\/\/example.com\/a3ew\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"error\": \"Unauthenticated\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n\"error\": \"Unauthorized\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n\"error\": \"Link not found\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
                     "name": "Get jwt token",
                     "request": {
                         "url": {
@@ -371,7 +615,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"floy28@example.com\",\"password\":\"++-1C0u\"}"
+                            "raw": "{\"email\":\"colin07@example.org\",\"password\":\".jEm;W\"}"
                         },
                         "description": "",
                         "auth": {
@@ -415,7 +659,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"ytvkvdawbz\",\"email\":\"reina.keebler@example.org\",\"password\":\"M{~?31zu*dY%f',3F\"}"
+                            "raw": "{\"name\":\"mlgrojkmcbweedtebra\",\"email\":\"medhurst.trevor@example.org\",\"password\":\".;TH*||}(lD\"}"
                         },
                         "description": "Create new user",
                         "auth": {
