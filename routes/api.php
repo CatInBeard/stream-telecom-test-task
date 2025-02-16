@@ -26,4 +26,4 @@ Route::middleware('throttle:10,3600')->group(function () {
 });
 
 Route::post('/short-links/{id}/additional_info', [ShortlLinkDataCollectController::class, 'store'])
-    ->name('short-links-additional-data.store')->middleware('throttle:100000,1');
+    ->name('short-links-additional-data.store')->middleware('throttle:5,1');
