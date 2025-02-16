@@ -1,6 +1,14 @@
 import React, {useState} from 'react';
 
-const Logout = ({setPage, getToken, setToken}) => {
+const TopMenu = ({page,setPage, getToken, setToken}) => {
+
+    const handleGoLink = () => {
+        setPage('home');
+    }
+
+    const handleGoProfile = () => {
+        setPage('profile');
+    }
 
     const handleLogout = async () => {
         const token = getToken();
@@ -29,9 +37,11 @@ const Logout = ({setPage, getToken, setToken}) => {
 
     return <div>
                 <div>
-                  <div className={"btn btn-danger float-end ml-2 mr-2"} onClick={handleLogout}>Logout</div>
+                    <div className={"btn btn-danger float-end ml-2 mr-2"} onClick={handleLogout}>Logout</div>
+                    {page !== 'home' && <div className={"btn btn-primary float-end ml-2 mr-2"} onClick={handleGoLink}>Link management</div>}
+                    {page !== 'profile' && <div className={"btn btn-secondary float-end ml-2 mr-2"} onClick={handleGoProfile}>Profile</div>}
                 </div>
             </div>;
 }
 
-export default Logout
+export default TopMenu

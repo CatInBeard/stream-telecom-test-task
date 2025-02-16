@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "e046c08d-82c6-4ea2-a842-04cbb769a21d",
+        "_postman_id": "9b08885b-223a-40a2-9550-8055dba02d9e",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -141,7 +141,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"limit\":3,\"page\":83,\"name\":\"debitis\",\"email\":\"bergnaum.russel@example.net\"}"
+                            "raw": "{\"limit\":25,\"page\":16,\"name\":\"inventore\",\"email\":\"nienow.edna@example.net\"}"
                         },
                         "description": "Only users with admin role can use this endpoint",
                         "auth": {
@@ -203,7 +203,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"at\",\"email\":\"runte.tracy@example.com\",\"password\":\"+;IsB>s\\\/i'86\\\\>0lE\",\"role\":\"admin\"}"
+                            "raw": "{\"name\":\"id\",\"email\":\"ureilly@example.org\",\"password\":\":c|fJj\",\"role\":\"client\"}"
                         },
                         "description": "You can see update only yourself if not admin",
                         "auth": {
@@ -316,7 +316,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"per_page\":7,\"page\":13}"
+                            "raw": "{\"per_page\":18,\"page\":16}"
                         },
                         "description": "",
                         "auth": {
@@ -327,7 +327,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "[\n   {\n     \"id\": 1,\n     \"link\": \"https:\/\/example.com\",\n     \"use_js_redirect\": \"false\",\n     \"user_id\": 1,\n     \"short_link\": https:\/\/example.com\/a3ew\n   },\n   {\n     \"id\": 2,\n     \"link\": \"https:\/\/example.com\/2\",\n     \"use_js_redirect\": \"false\"\n     \"user_id\": 22,\n     \"short_link\": https:\/\/example.com\/b3ew\n   }\n ]",
+                            "body": "{\n\"current_page\" : 1\n\"data\" => [\n   {\n     \"id\": 1,\n     \"link\": \"https:\/\/example.com\",\n     \"use_js_redirect\": \"false\",\n     \"user_id\": 1,\n     \"short_link\": https:\/\/example.com\/a3ew\n   },\n   {\n     \"id\": 2,\n     \"link\": \"https:\/\/example.com\/2\",\n     \"use_js_redirect\": \"false\"\n     \"user_id\": 22,\n     \"short_link\": https:\/\/example.com\/b3ew\n   }\n ]\n\"per_page\" : 10,\n\"to\" : 1,\n\"total\" : 1\n}",
                             "name": ""
                         },
                         {
@@ -370,7 +370,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"url\":\"http:\\\/\\\/botsford.com\\\/\",\"use_js_redirect\":false}"
+                            "raw": "{\"url\":\"http:\\\/\\\/conn.net\\\/nostrum-a-mollitia-est-optio-veniam-dolor\",\"use_js_redirect\":true}"
                         },
                         "description": "",
                         "auth": {
@@ -410,7 +410,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "ea",
+                                    "value": "occaecati",
                                     "description": "The ID of the short link."
                                 }
                             ]
@@ -475,7 +475,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "illo",
+                                    "value": "autem",
                                     "description": "The ID of the short link."
                                 }
                             ]
@@ -533,15 +533,15 @@
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/short-links\/:shortLink",
+                            "path": "api\/short-links\/:id",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/short-links\/:shortLink",
+                            "raw": "{{baseUrl}}\/api\/short-links\/:id",
                             "variable": [
                                 {
-                                    "id": "shortLink",
-                                    "key": "shortLink",
-                                    "value": "hic",
-                                    "description": ""
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "deserunt",
+                                    "description": "The ID of the short link."
                                 }
                             ]
                         },
@@ -615,7 +615,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"colin07@example.org\",\"password\":\".jEm;W\"}"
+                            "raw": "{\"email\":\"tchamplin@example.org\",\"password\":\"hRz3hxx!~(A)m\"}"
                         },
                         "description": "",
                         "auth": {
@@ -659,7 +659,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"mlgrojkmcbweedtebra\",\"email\":\"medhurst.trevor@example.org\",\"password\":\".;TH*||}(lD\"}"
+                            "raw": "{\"name\":\"fswldsaksm\",\"email\":\"vidal.abbott@example.com\",\"password\":\"r77%jws&%\"}"
                         },
                         "description": "Create new user",
                         "auth": {
@@ -674,6 +674,45 @@
                             "name": ""
                         }
                     ]
+                },
+                {
+                    "name": "POST api\/short-links\/{id}\/additional_info",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/short-links\/:id\/additional_info",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/short-links\/:id\/additional_info",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "non",
+                                    "description": "The ID of the short link."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"userAgent\":\"molestias\",\"language\":\"culpa\",\"platform\":\"dolor\",\"screenResolution\":\"hic\",\"colorDepth\":20,\"timezone\":\"Indian\\\/Mayotte\",\"plugins\":[],\"cookiesEnabled\":true,\"hardwareConcurrency\":3,\"onlineStatus\":false,\"viewportSize\":\"hic\",\"canvasFingerprint\":\"cumque\",\"installedFonts\":[],\"browserName\":\"minima\",\"browserVersion\":\"occaecati\",\"windowSize\":[],\"localStorageAvailable\":false,\"sessionStorageAvailable\":false,\"cssProperties\":[]}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
                 }
             ]
         }

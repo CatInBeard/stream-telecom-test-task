@@ -98,14 +98,17 @@
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-short-links--id-">
                                 <a href="#endpoints-DELETEapi-short-links--id-">Create new short link</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-short-links--shortLink-">
-                                <a href="#endpoints-GETapi-short-links--shortLink-">Get short link by id</a>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-short-links--id-">
+                                <a href="#endpoints-GETapi-short-links--id-">Get short link by id</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-auth">
                                 <a href="#endpoints-POSTapi-auth">Get jwt token</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-users">
                                 <a href="#endpoints-POSTapi-users">Create user</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-short-links--id--additional_info">
+                                <a href="#endpoints-POSTapi-short-links--id--additional_info">POST api/short-links/{id}/additional_info</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -448,10 +451,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"limit\": 3,
-    \"page\": 83,
-    \"name\": \"debitis\",
-    \"email\": \"bergnaum.russel@example.net\"
+    \"limit\": 25,
+    \"page\": 16,
+    \"name\": \"inventore\",
+    \"email\": \"nienow.edna@example.net\"
 }"
 </code></pre></div>
 
@@ -468,10 +471,10 @@ const headers = {
 };
 
 let body = {
-    "limit": 3,
-    "page": 83,
-    "name": "debitis",
-    "email": "bergnaum.russel@example.net"
+    "limit": 25,
+    "page": 16,
+    "name": "inventore",
+    "email": "nienow.edna@example.net"
 };
 
 fetch(url, {
@@ -607,10 +610,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="limit"                data-endpoint="GETapi-users"
-               value="3"
+               value="25"
                data-component="body">
     <br>
-<p>Must be at least 1. Must not be greater than 500. Example: <code>3</code></p>
+<p>Must be at least 1. Must not be greater than 500. Example: <code>25</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
@@ -618,10 +621,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="page"                data-endpoint="GETapi-users"
-               value="83"
+               value="16"
                data-component="body">
     <br>
-<p>Must be at least 1. Example: <code>83</code></p>
+<p>Must be at least 1. Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
@@ -629,10 +632,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="GETapi-users"
-               value="debitis"
+               value="inventore"
                data-component="body">
     <br>
-<p>Example: <code>debitis</code></p>
+<p>Example: <code>inventore</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -640,10 +643,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="GETapi-users"
-               value="bergnaum.russel@example.net"
+               value="nienow.edna@example.net"
                data-component="body">
     <br>
-<p>Example: <code>bergnaum.russel@example.net</code></p>
+<p>Example: <code>nienow.edna@example.net</code></p>
         </div>
         </form>
 
@@ -665,10 +668,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"at\",
-    \"email\": \"runte.tracy@example.com\",
-    \"password\": \"+;IsB&gt;s\\/i\'86\\\\&gt;0lE\",
-    \"role\": \"admin\"
+    \"name\": \"id\",
+    \"email\": \"ureilly@example.org\",
+    \"password\": \":c|fJj\",
+    \"role\": \"client\"
 }"
 </code></pre></div>
 
@@ -685,10 +688,10 @@ const headers = {
 };
 
 let body = {
-    "name": "at",
-    "email": "runte.tracy@example.com",
-    "password": "+;IsB&gt;s\/i'86\\&gt;0lE",
-    "role": "admin"
+    "name": "id",
+    "email": "ureilly@example.org",
+    "password": ":c|fJj",
+    "role": "client"
 };
 
 fetch(url, {
@@ -833,10 +836,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="PUTapi-users--id-"
-               value="at"
+               value="id"
                data-component="body">
     <br>
-<p>optional required The name of the user. Example: <code>at</code></p>
+<p>optional required The name of the user. Example: <code>id</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -844,10 +847,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="PUTapi-users--id-"
-               value="runte.tracy@example.com"
+               value="ureilly@example.org"
                data-component="body">
     <br>
-<p>optional required The email of the user. Example: <code>runte.tracy@example.com</code></p>
+<p>optional required The email of the user. Example: <code>ureilly@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -855,10 +858,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="PUTapi-users--id-"
-               value="+;IsB>s/i'86\>0lE"
+               value=":c|fJj"
                data-component="body">
     <br>
-<p>optional The password of the user. Example: <code>+;IsB&gt;s/i'86\&gt;0lE</code></p>
+<p>optional The password of the user. Example: <code>:c|fJj</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>role</code></b>&nbsp;&nbsp;
@@ -866,10 +869,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="role"                data-endpoint="PUTapi-users--id-"
-               value="admin"
+               value="client"
                data-component="body">
     <br>
-<p>Example: <code>admin</code></p>
+<p>Example: <code>client</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>client</code></li> <li><code>admin</code></li></ul>
         </div>
@@ -1050,8 +1053,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"per_page\": 7,
-    \"page\": 13
+    \"per_page\": 18,
+    \"page\": 16
 }"
 </code></pre></div>
 
@@ -1068,8 +1071,8 @@ const headers = {
 };
 
 let body = {
-    "per_page": 7,
-    "page": 13
+    "per_page": 18,
+    "page": 16
 };
 
 fetch(url, {
@@ -1086,7 +1089,9 @@ fetch(url, {
         </blockquote>
                 <pre>
 
-<code class="language-json" style="max-height: 300px;">[
+<code class="language-json" style="max-height: 300px;">{
+&quot;current_page&quot; : 1
+&quot;data&quot; =&gt; [
    {
      &quot;id&quot;: 1,
      &quot;link&quot;: &quot;https://example.com&quot;,
@@ -1101,7 +1106,11 @@ fetch(url, {
      &quot;user_id&quot;: 22,
      &quot;short_link&quot;: https://example.com/b3ew
    }
- ]</code>
+ ]
+&quot;per_page&quot; : 10,
+&quot;to&quot; : 1,
+&quot;total&quot; : 1
+}</code>
  </pre>
             <blockquote>
             <p>Example response (401):</p>
@@ -1209,10 +1218,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="per_page"                data-endpoint="GETapi-short-links"
-               value="7"
+               value="18"
                data-component="body">
     <br>
-<p>Must be at least 1. Must not be greater than 100. Example: <code>7</code></p>
+<p>Must be at least 1. Must not be greater than 100. Example: <code>18</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
@@ -1220,10 +1229,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="page"                data-endpoint="GETapi-short-links"
-               value="13"
+               value="16"
                data-component="body">
     <br>
-<p>Must be at least 1. Example: <code>13</code></p>
+<p>Must be at least 1. Example: <code>16</code></p>
         </div>
         </form>
 
@@ -1245,8 +1254,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"url\": \"http:\\/\\/botsford.com\\/\",
-    \"use_js_redirect\": false
+    \"url\": \"http:\\/\\/conn.net\\/nostrum-a-mollitia-est-optio-veniam-dolor\",
+    \"use_js_redirect\": true
 }"
 </code></pre></div>
 
@@ -1263,8 +1272,8 @@ const headers = {
 };
 
 let body = {
-    "url": "http:\/\/botsford.com\/",
-    "use_js_redirect": false
+    "url": "http:\/\/conn.net\/nostrum-a-mollitia-est-optio-veniam-dolor",
+    "use_js_redirect": true
 };
 
 fetch(url, {
@@ -1395,10 +1404,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="url"                data-endpoint="POSTapi-short-links"
-               value="http://botsford.com/"
+               value="http://conn.net/nostrum-a-mollitia-est-optio-veniam-dolor"
                data-component="body">
     <br>
-<p>Must be a valid URL. Example: <code>http://botsford.com/</code></p>
+<p>Must be a valid URL. Example: <code>http://conn.net/nostrum-a-mollitia-est-optio-veniam-dolor</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>use_js_redirect</code></b>&nbsp;&nbsp;
@@ -1419,7 +1428,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
         </form>
 
@@ -1436,7 +1445,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/short-links/ea" \
+    "http://localhost/api/short-links/occaecati" \
     --header "Authorization: Bearer token" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1444,7 +1453,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/short-links/ea"
+    "http://localhost/api/short-links/occaecati"
 );
 
 const headers = {
@@ -1593,10 +1602,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="PUTapi-short-links--id-"
-               value="ea"
+               value="occaecati"
                data-component="url">
     <br>
-<p>The ID of the short link. Example: <code>ea</code></p>
+<p>The ID of the short link. Example: <code>occaecati</code></p>
             </div>
                     </form>
 
@@ -1613,7 +1622,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/short-links/illo" \
+    "http://localhost/api/short-links/autem" \
     --header "Authorization: Bearer token" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1621,7 +1630,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/short-links/illo"
+    "http://localhost/api/short-links/autem"
 );
 
 const headers = {
@@ -1759,27 +1768,27 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="DELETEapi-short-links--id-"
-               value="illo"
+               value="autem"
                data-component="url">
     <br>
-<p>The ID of the short link. Example: <code>illo</code></p>
+<p>The ID of the short link. Example: <code>autem</code></p>
             </div>
                     </form>
 
-                    <h2 id="endpoints-GETapi-short-links--shortLink-">Get short link by id</h2>
+                    <h2 id="endpoints-GETapi-short-links--id-">Get short link by id</h2>
 
 <p>
 </p>
 
 
 
-<span id="example-requests-GETapi-short-links--shortLink-">
+<span id="example-requests-GETapi-short-links--id-">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/short-links/hic" \
+    --get "http://localhost/api/short-links/deserunt" \
     --header "Authorization: Bearer token" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1787,7 +1796,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/short-links/hic"
+    "http://localhost/api/short-links/deserunt"
 );
 
 const headers = {
@@ -1803,7 +1812,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-short-links--shortLink-">
+<span id="example-responses-GETapi-short-links--id-">
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
@@ -1845,43 +1854,43 @@ fetch(url, {
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-short-links--shortLink-" hidden>
+<span id="execution-results-GETapi-short-links--id-" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-short-links--shortLink-"></span>:
+                id="execution-response-status-GETapi-short-links--id-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-short-links--shortLink-"
+    <pre class="json"><code id="execution-response-content-GETapi-short-links--id-"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-short-links--shortLink-" hidden>
+<span id="execution-error-GETapi-short-links--id-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-short-links--shortLink-">
+    <pre><code id="execution-error-message-GETapi-short-links--id-">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-GETapi-short-links--shortLink-" data-method="GET"
-      data-path="api/short-links/{shortLink}"
+<form id="form-GETapi-short-links--id-" data-method="GET"
+      data-path="api/short-links/{id}"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-short-links--shortLink-', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-short-links--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-short-links--shortLink-"
-                    onclick="tryItOut('GETapi-short-links--shortLink-');">Try it out ⚡
+                    id="btn-tryout-GETapi-short-links--id-"
+                    onclick="tryItOut('GETapi-short-links--id-');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-short-links--shortLink-"
-                    onclick="cancelTryOut('GETapi-short-links--shortLink-');" hidden>Cancel 🛑
+                    id="btn-canceltryout-GETapi-short-links--id-"
+                    onclick="cancelTryOut('GETapi-short-links--id-');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-short-links--shortLink-"
+                    id="btn-executetryout-GETapi-short-links--id-"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -1889,7 +1898,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/short-links/{shortLink}</code></b>
+            <b><code>api/short-links/{id}</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -1897,7 +1906,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Authorization"                data-endpoint="GETapi-short-links--shortLink-"
+                              name="Authorization"                data-endpoint="GETapi-short-links--id-"
                value="Bearer token"
                data-component="header">
     <br>
@@ -1908,7 +1917,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-short-links--shortLink-"
+                              name="Content-Type"                data-endpoint="GETapi-short-links--id-"
                value="application/json"
                data-component="header">
     <br>
@@ -1919,7 +1928,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-short-links--shortLink-"
+                              name="Accept"                data-endpoint="GETapi-short-links--id-"
                value="application/json"
                data-component="header">
     <br>
@@ -1927,15 +1936,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>shortLink</code></b>&nbsp;&nbsp;
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="shortLink"                data-endpoint="GETapi-short-links--shortLink-"
-               value="hic"
+                              name="id"                data-endpoint="GETapi-short-links--id-"
+               value="deserunt"
                data-component="url">
     <br>
-<p>Example: <code>hic</code></p>
+<p>The ID of the short link. Example: <code>deserunt</code></p>
             </div>
                     </form>
 
@@ -1956,8 +1965,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"colin07@example.org\",
-    \"password\": \".jEm;W\"
+    \"email\": \"tchamplin@example.org\",
+    \"password\": \"hRz3hxx!~(A)m\"
 }"
 </code></pre></div>
 
@@ -1973,8 +1982,8 @@ const headers = {
 };
 
 let body = {
-    "email": "colin07@example.org",
-    "password": ".jEm;W"
+    "email": "tchamplin@example.org",
+    "password": "hRz3hxx!~(A)m"
 };
 
 fetch(url, {
@@ -2082,10 +2091,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-auth"
-               value="colin07@example.org"
+               value="tchamplin@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>colin07@example.org</code></p>
+<p>Must be a valid email address. Example: <code>tchamplin@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -2093,10 +2102,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-auth"
-               value=".jEm;W"
+               value="hRz3hxx!~(A)m"
                data-component="body">
     <br>
-<p>Example: <code>.jEm;W</code></p>
+<p>Example: <code>hRz3hxx!~(A)m</code></p>
         </div>
         </form>
 
@@ -2117,9 +2126,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"mlgrojkmcbweedtebra\",
-    \"email\": \"medhurst.trevor@example.org\",
-    \"password\": \".;TH*||}(lD\"
+    \"name\": \"fswldsaksm\",
+    \"email\": \"vidal.abbott@example.com\",
+    \"password\": \"r77%jws&amp;%\"
 }"
 </code></pre></div>
 
@@ -2135,9 +2144,9 @@ const headers = {
 };
 
 let body = {
-    "name": "mlgrojkmcbweedtebra",
-    "email": "medhurst.trevor@example.org",
-    "password": ".;TH*||}(lD"
+    "name": "fswldsaksm",
+    "email": "vidal.abbott@example.com",
+    "password": "r77%jws&amp;%"
 };
 
 fetch(url, {
@@ -2237,10 +2246,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-users"
-               value="mlgrojkmcbweedtebra"
+               value="fswldsaksm"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>mlgrojkmcbweedtebra</code></p>
+<p>Must not be greater than 255 characters. Example: <code>fswldsaksm</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -2248,10 +2257,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-users"
-               value="medhurst.trevor@example.org"
+               value="vidal.abbott@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>medhurst.trevor@example.org</code></p>
+<p>Must be a valid email address. Example: <code>vidal.abbott@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -2259,10 +2268,425 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-users"
-               value=".;TH*||}(lD"
+               value="r77%jws&%"
                data-component="body">
     <br>
-<p>Must be at least 6 characters. Example: <code>.;TH*||}(lD</code></p>
+<p>Must be at least 6 characters. Example: <code>r77%jws&amp;%</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-POSTapi-short-links--id--additional_info">POST api/short-links/{id}/additional_info</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-short-links--id--additional_info">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/short-links/non/additional_info" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"userAgent\": \"molestias\",
+    \"language\": \"culpa\",
+    \"platform\": \"dolor\",
+    \"screenResolution\": \"hic\",
+    \"colorDepth\": 20,
+    \"timezone\": \"Indian\\/Mayotte\",
+    \"plugins\": [],
+    \"cookiesEnabled\": true,
+    \"hardwareConcurrency\": 3,
+    \"onlineStatus\": false,
+    \"viewportSize\": \"hic\",
+    \"canvasFingerprint\": \"cumque\",
+    \"installedFonts\": [],
+    \"browserName\": \"minima\",
+    \"browserVersion\": \"occaecati\",
+    \"windowSize\": [],
+    \"localStorageAvailable\": false,
+    \"sessionStorageAvailable\": false,
+    \"cssProperties\": []
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/short-links/non/additional_info"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "userAgent": "molestias",
+    "language": "culpa",
+    "platform": "dolor",
+    "screenResolution": "hic",
+    "colorDepth": 20,
+    "timezone": "Indian\/Mayotte",
+    "plugins": [],
+    "cookiesEnabled": true,
+    "hardwareConcurrency": 3,
+    "onlineStatus": false,
+    "viewportSize": "hic",
+    "canvasFingerprint": "cumque",
+    "installedFonts": [],
+    "browserName": "minima",
+    "browserVersion": "occaecati",
+    "windowSize": [],
+    "localStorageAvailable": false,
+    "sessionStorageAvailable": false,
+    "cssProperties": []
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-short-links--id--additional_info">
+</span>
+<span id="execution-results-POSTapi-short-links--id--additional_info" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-short-links--id--additional_info"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-short-links--id--additional_info"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-short-links--id--additional_info" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-short-links--id--additional_info">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-short-links--id--additional_info" data-method="POST"
+      data-path="api/short-links/{id}/additional_info"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-short-links--id--additional_info', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-short-links--id--additional_info"
+                    onclick="tryItOut('POSTapi-short-links--id--additional_info');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-short-links--id--additional_info"
+                    onclick="cancelTryOut('POSTapi-short-links--id--additional_info');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-short-links--id--additional_info"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/short-links/{id}/additional_info</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-short-links--id--additional_info"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-short-links--id--additional_info"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="POSTapi-short-links--id--additional_info"
+               value="non"
+               data-component="url">
+    <br>
+<p>The ID of the short link. Example: <code>non</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>userAgent</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="userAgent"                data-endpoint="POSTapi-short-links--id--additional_info"
+               value="molestias"
+               data-component="body">
+    <br>
+<p>Example: <code>molestias</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>language</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="language"                data-endpoint="POSTapi-short-links--id--additional_info"
+               value="culpa"
+               data-component="body">
+    <br>
+<p>Example: <code>culpa</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>platform</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="platform"                data-endpoint="POSTapi-short-links--id--additional_info"
+               value="dolor"
+               data-component="body">
+    <br>
+<p>Example: <code>dolor</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>screenResolution</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="screenResolution"                data-endpoint="POSTapi-short-links--id--additional_info"
+               value="hic"
+               data-component="body">
+    <br>
+<p>Example: <code>hic</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>colorDepth</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="colorDepth"                data-endpoint="POSTapi-short-links--id--additional_info"
+               value="20"
+               data-component="body">
+    <br>
+<p>Example: <code>20</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>timezone</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="timezone"                data-endpoint="POSTapi-short-links--id--additional_info"
+               value="Indian/Mayotte"
+               data-component="body">
+    <br>
+<p>Example: <code>Indian/Mayotte</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>plugins</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="plugins"                data-endpoint="POSTapi-short-links--id--additional_info"
+               value=""
+               data-component="body">
+    <br>
+
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>cookiesEnabled</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+ &nbsp;
+                <label data-endpoint="POSTapi-short-links--id--additional_info" style="display: none">
+            <input type="radio" name="cookiesEnabled"
+                   value="true"
+                   data-endpoint="POSTapi-short-links--id--additional_info"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTapi-short-links--id--additional_info" style="display: none">
+            <input type="radio" name="cookiesEnabled"
+                   value="false"
+                   data-endpoint="POSTapi-short-links--id--additional_info"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Example: <code>true</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>hardwareConcurrency</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="hardwareConcurrency"                data-endpoint="POSTapi-short-links--id--additional_info"
+               value="3"
+               data-component="body">
+    <br>
+<p>Example: <code>3</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>onlineStatus</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+ &nbsp;
+                <label data-endpoint="POSTapi-short-links--id--additional_info" style="display: none">
+            <input type="radio" name="onlineStatus"
+                   value="true"
+                   data-endpoint="POSTapi-short-links--id--additional_info"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTapi-short-links--id--additional_info" style="display: none">
+            <input type="radio" name="onlineStatus"
+                   value="false"
+                   data-endpoint="POSTapi-short-links--id--additional_info"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Example: <code>false</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>viewportSize</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="viewportSize"                data-endpoint="POSTapi-short-links--id--additional_info"
+               value="hic"
+               data-component="body">
+    <br>
+<p>Example: <code>hic</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>canvasFingerprint</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="canvasFingerprint"                data-endpoint="POSTapi-short-links--id--additional_info"
+               value="cumque"
+               data-component="body">
+    <br>
+<p>Example: <code>cumque</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>installedFonts</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="installedFonts"                data-endpoint="POSTapi-short-links--id--additional_info"
+               value=""
+               data-component="body">
+    <br>
+
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>browserName</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="browserName"                data-endpoint="POSTapi-short-links--id--additional_info"
+               value="minima"
+               data-component="body">
+    <br>
+<p>Example: <code>minima</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>browserVersion</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="browserVersion"                data-endpoint="POSTapi-short-links--id--additional_info"
+               value="occaecati"
+               data-component="body">
+    <br>
+<p>Example: <code>occaecati</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>windowSize</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="windowSize"                data-endpoint="POSTapi-short-links--id--additional_info"
+               value=""
+               data-component="body">
+    <br>
+
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>localStorageAvailable</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+ &nbsp;
+                <label data-endpoint="POSTapi-short-links--id--additional_info" style="display: none">
+            <input type="radio" name="localStorageAvailable"
+                   value="true"
+                   data-endpoint="POSTapi-short-links--id--additional_info"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTapi-short-links--id--additional_info" style="display: none">
+            <input type="radio" name="localStorageAvailable"
+                   value="false"
+                   data-endpoint="POSTapi-short-links--id--additional_info"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Example: <code>false</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sessionStorageAvailable</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+ &nbsp;
+                <label data-endpoint="POSTapi-short-links--id--additional_info" style="display: none">
+            <input type="radio" name="sessionStorageAvailable"
+                   value="true"
+                   data-endpoint="POSTapi-short-links--id--additional_info"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTapi-short-links--id--additional_info" style="display: none">
+            <input type="radio" name="sessionStorageAvailable"
+                   value="false"
+                   data-endpoint="POSTapi-short-links--id--additional_info"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Example: <code>false</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>cssProperties</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="cssProperties"                data-endpoint="POSTapi-short-links--id--additional_info"
+               value=""
+               data-component="body">
+    <br>
+
         </div>
         </form>
 

@@ -101,7 +101,7 @@ class ShortLinkController extends Controller
     public function store(CreateShortLinkRequest $request): \Illuminate\Http\JsonResponse
     {
         $url = $request->input('url');
-        $use_js_redirect = $request->input('url');
+        $use_js_redirect = (bool) $request->input('use_js_redirect');
         $this->linkValidationService->validateLink($url);
         $link = $this->shortLinkService->createShortLink($url, $use_js_redirect);
         return response()->json($link, 201);

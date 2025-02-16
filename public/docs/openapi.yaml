@@ -78,12 +78,12 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: colin07@example.org
+                  example: tchamplin@example.org
                   nullable: false
                 password:
                   type: string
                   description: ''
-                  example: .jEm;W
+                  example: hRz3hxx!~(A)m
                   nullable: false
               required:
                 - email
@@ -203,22 +203,22 @@ paths:
                 limit:
                   type: integer
                   description: 'Must be at least 1. Must not be greater than 500.'
-                  example: 3
+                  example: 25
                   nullable: false
                 page:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 83
+                  example: 16
                   nullable: false
                 name:
                   type: string
                   description: ''
-                  example: debitis
+                  example: inventore
                   nullable: true
                 email:
                   type: string
                   description: ''
-                  example: bergnaum.russel@example.net
+                  example: nienow.edna@example.net
                   nullable: true
       security: []
     post:
@@ -259,17 +259,17 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: mlgrojkmcbweedtebra
+                  example: fswldsaksm
                   nullable: false
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: medhurst.trevor@example.org
+                  example: vidal.abbott@example.com
                   nullable: false
                 password:
                   type: string
                   description: 'Must be at least 6 characters.'
-                  example: '.;TH*||}(lD'
+                  example: 'r77%jws&%'
                   nullable: false
               required:
                 - name
@@ -339,22 +339,22 @@ paths:
                 name:
                   type: string
                   description: 'optional required The name of the user.'
-                  example: at
+                  example: id
                   nullable: false
                 email:
                   type: string
                   description: 'optional required The email of the user.'
-                  example: runte.tracy@example.com
+                  example: ureilly@example.org
                   nullable: false
                 password:
                   type: string
                   description: 'optional The password of the user.'
-                  example: '+;IsB>s/i''86\>0lE'
+                  example: ':c|fJj'
                   nullable: false
                 role:
                   type: string
                   description: ''
-                  example: admin
+                  example: client
                   nullable: false
                   enum:
                     - client
@@ -417,7 +417,7 @@ paths:
             text/plain:
               schema:
                 type: string
-                example: "[\n   {\n     \"id\": 1,\n     \"link\": \"https://example.com\",\n     \"use_js_redirect\": \"false\",\n     \"user_id\": 1,\n     \"short_link\": https://example.com/a3ew\n   },\n   {\n     \"id\": 2,\n     \"link\": \"https://example.com/2\",\n     \"use_js_redirect\": \"false\"\n     \"user_id\": 22,\n     \"short_link\": https://example.com/b3ew\n   }\n ]"
+                example: "{\n\"current_page\" : 1\n\"data\" => [\n   {\n     \"id\": 1,\n     \"link\": \"https://example.com\",\n     \"use_js_redirect\": \"false\",\n     \"user_id\": 1,\n     \"short_link\": https://example.com/a3ew\n   },\n   {\n     \"id\": 2,\n     \"link\": \"https://example.com/2\",\n     \"use_js_redirect\": \"false\"\n     \"user_id\": 22,\n     \"short_link\": https://example.com/b3ew\n   }\n ]\n\"per_page\" : 10,\n\"to\" : 1,\n\"total\" : 1\n}"
         401:
           description: ''
           content:
@@ -454,12 +454,12 @@ paths:
                 per_page:
                   type: integer
                   description: 'Must be at least 1. Must not be greater than 100.'
-                  example: 7
+                  example: 18
                   nullable: true
                 page:
                   type: integer
                   description: 'Must be at least 1.'
-                  example: 13
+                  example: 16
                   nullable: true
       security: []
     post:
@@ -511,12 +511,12 @@ paths:
                 url:
                   type: string
                   description: 'Must be a valid URL.'
-                  example: 'http://botsford.com/'
+                  example: 'http://conn.net/nostrum-a-mollitia-est-optio-veniam-dolor'
                   nullable: false
                 use_js_redirect:
                   type: boolean
                   description: ''
-                  example: false
+                  example: true
                   nullable: false
               required:
                 - url
@@ -621,16 +621,6 @@ paths:
       tags:
         - Endpoints
       security: []
-    parameters:
-      -
-        in: path
-        name: id
-        description: 'The ID of the short link.'
-        example: ea
-        required: true
-        schema:
-          type: string
-  '/api/short-links/{shortLink}':
     get:
       summary: 'Get short link by id'
       operationId: getShortLinkById
@@ -686,9 +676,154 @@ paths:
     parameters:
       -
         in: path
-        name: shortLink
-        description: ''
-        example: hic
+        name: id
+        description: 'The ID of the short link.'
+        example: occaecati
+        required: true
+        schema:
+          type: string
+  '/api/short-links/{id}/additional_info':
+    post:
+      summary: ''
+      operationId: postApiShortLinksIdAdditional_info
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userAgent:
+                  type: string
+                  description: ''
+                  example: molestias
+                  nullable: false
+                language:
+                  type: string
+                  description: ''
+                  example: culpa
+                  nullable: false
+                platform:
+                  type: string
+                  description: ''
+                  example: dolor
+                  nullable: false
+                screenResolution:
+                  type: string
+                  description: ''
+                  example: hic
+                  nullable: false
+                colorDepth:
+                  type: integer
+                  description: ''
+                  example: 20
+                  nullable: false
+                timezone:
+                  type: string
+                  description: ''
+                  example: Indian/Mayotte
+                  nullable: false
+                plugins:
+                  type: object
+                  description: ''
+                  example: []
+                  nullable: false
+                  properties: {  }
+                cookiesEnabled:
+                  type: boolean
+                  description: ''
+                  example: true
+                  nullable: false
+                hardwareConcurrency:
+                  type: integer
+                  description: ''
+                  example: 3
+                  nullable: false
+                onlineStatus:
+                  type: boolean
+                  description: ''
+                  example: false
+                  nullable: false
+                viewportSize:
+                  type: string
+                  description: ''
+                  example: hic
+                  nullable: false
+                canvasFingerprint:
+                  type: string
+                  description: ''
+                  example: cumque
+                  nullable: false
+                installedFonts:
+                  type: object
+                  description: ''
+                  example: []
+                  nullable: false
+                  properties: {  }
+                browserName:
+                  type: string
+                  description: ''
+                  example: minima
+                  nullable: false
+                browserVersion:
+                  type: string
+                  description: ''
+                  example: occaecati
+                  nullable: false
+                windowSize:
+                  type: object
+                  description: ''
+                  example: []
+                  nullable: false
+                  properties: {  }
+                localStorageAvailable:
+                  type: boolean
+                  description: ''
+                  example: false
+                  nullable: false
+                sessionStorageAvailable:
+                  type: boolean
+                  description: ''
+                  example: false
+                  nullable: false
+                cssProperties:
+                  type: object
+                  description: ''
+                  example: []
+                  nullable: false
+                  properties: {  }
+              required:
+                - userAgent
+                - language
+                - platform
+                - screenResolution
+                - colorDepth
+                - timezone
+                - plugins
+                - cookiesEnabled
+                - hardwareConcurrency
+                - onlineStatus
+                - viewportSize
+                - canvasFingerprint
+                - installedFonts
+                - browserName
+                - browserVersion
+                - windowSize
+                - localStorageAvailable
+                - sessionStorageAvailable
+                - cssProperties
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the short link.'
+        example: non
         required: true
         schema:
           type: string

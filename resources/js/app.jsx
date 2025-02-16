@@ -6,7 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Welcome from './components/welcome.jsx';
 import Login from "./components/login.jsx";
 import Home from "./components/home.jsx"
-import Logout from "./components/logout.jsx";
+import TopMenu from "./components/topMenu.jsx";
+import Profile from "./components/profile.jsx";
 
 const App = () => {
     const [page, setPage] = useState('welcome');
@@ -35,13 +36,12 @@ const App = () => {
                 });
 
                 if (response.status === 401) {
-                    // Удаляем токен из localStorage и сбрасываем состояние
                     localStorage.removeItem('token');
                     setToken(null);
-                    setPage('welcome'); // Перенаправляем на страницу приветствия
+                    setPage('welcome');
                 }
             } catch (error) {
-                console.error('Ошибка при проверке токена:', error);
+                console.error('Failed to validate token:', error);
             }
         }
     };
@@ -56,10 +56,11 @@ const App = () => {
             borderLeft: '1px solid #CCCCCC',
             borderRight: '1px solid #CCCCCC'
         }}>
-            {token !== null && <Logout setPage={setPage} getToken={getToken} setToken={setToken}/> }
+            {token !== null && <TopMenu page={page} setPage={setPage} getToken={getToken} setToken={setToken}/> }
             {page === 'welcome' && <Welcome setPage={setPage} getToken={getToken} /> }
             {page === 'login' && <Login setPage={setPage} setToken={saveToken} getToken={getToken} />}
             {page === 'home' && <Home setPage={setPage} getToken={getToken} />}
+            {page === 'profile' && <Profile setPage={setPage} getToken={getToken} />}
         </div>
     );
 };
